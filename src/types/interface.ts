@@ -4,12 +4,12 @@ type AnswerType = "Yes" | "No";
 
 // 人の属性の列挙（今の中身は例）
 // これの増加に合わせて、CharacteristicPairも増やす
-const Characteristic = {
+export const Characteristic = {
     Generous: "Generous",
     Brave: "Brave",
     Cautious: "Cautious",
 } as const;
-type Characteristic = typeof Characteristic[keyof typeof Characteristic];
+export type Characteristic = typeof Characteristic[keyof typeof Characteristic];
 
 
 // 人の属性の列挙を対立するペアにまとめたもの
@@ -17,7 +17,7 @@ type CharacteristicPair = Record<AnswerType, Characteristic>;
 
 
 // Front.Phase1に表示される質問の実態
-interface CharacteristicQuestion {
+export interface CharacteristicQuestion {
     id: number; // ID
     question: string; // 質問文
     characteristic: CharacteristicPair; // Yes / NO のそれぞれに対応する属性
@@ -25,7 +25,7 @@ interface CharacteristicQuestion {
 
 
 // Backに送る、質問の内容と回答
-interface CharacteristicResult extends CharacteristicQuestion {
+export interface CharacteristicResult extends CharacteristicQuestion {
     answer: AnswerType; // 回答
 }
 
@@ -61,7 +61,7 @@ interface CompanyResult extends Company {
 // 自己分析の結果
 // Front.Phase1から送られるCharacteristicResultの蓄積から作成する
 // これとcompany.wantsを突き合わせて、上位の企業をCompany[]に詰めてFront.Phase2に送る
-interface SelfAnalysis {
+export interface SelfAnalysis {
     characteristicsScore: {
         [key in Characteristic]?: number; // 属性の傾向のスコアリング
     };
