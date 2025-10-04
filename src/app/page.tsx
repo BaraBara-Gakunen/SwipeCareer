@@ -7,11 +7,7 @@ export default function MainPage() {
 
   const slides = [
     { image: "/image3.png" },
-    {
-      image:
-        "/image5.png",
-      
-    },
+    { image: "/image5.png" },
     {
       image:
         "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1600&h=900&fit=crop",
@@ -52,7 +48,7 @@ export default function MainPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50">
       {/* ヘッダー */}
-      <header className="bg-white/90 backdrop-blur-md shadow-lg shadow-pink-300 sticky top-0 z-50 rounded-b-3xl">
+      <header className="bg-white/90 backdrop-blur-md shadow-lg shadow-pink-300 sticky top-0 z-50 transition-all duration-300 rounded-b-3xl">
     <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
     {/* タイトル */}
     <h1 className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-pink-400 via-rose-300 to-purple-300 bg-clip-text text-transparent">
