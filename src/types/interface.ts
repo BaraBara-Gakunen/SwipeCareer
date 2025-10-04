@@ -83,7 +83,7 @@ interface ScoredCharacteristic {
 
 // マッチした企業の情報
 // SelfAnalysisとFavoriteCompaniesAnalysisを元に、全企業のうち上位のscoreの企業を4番の人にMatchedCompany[]として送る
-interface MatchedCompany extends Company {
+export interface MatchedCompany extends Company {
     score: number; // 0 <= score <= 100
     matchedCharacteristics: ScoredCharacteristic[]; // 企業が求める属性と自己分析のスコアリングのマッチング結果
 }
@@ -92,7 +92,7 @@ interface MatchedCompany extends Company {
 
 // 最終的な推薦結果
 // MatchedCompanyとAIが生成したESのドラフトをセットしFront.Phase3に送る
-interface RecommendationCompany {
+export interface RecommendationCompany {
     matchedCompany: MatchedCompany;
     esDraft: string;
 }

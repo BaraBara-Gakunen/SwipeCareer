@@ -1,3 +1,6 @@
+// if you want to test with mock data, 
+// uncomment the import below and the relevant line in the POST function
+
 import { NextRequest, NextResponse } from "next/server";
 import { makeESDraft } from "./gemini";
 // import { mockMatchedCompany } from "./mockObject";
