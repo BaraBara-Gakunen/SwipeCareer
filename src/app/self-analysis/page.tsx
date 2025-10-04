@@ -4,12 +4,12 @@ import {
   CharacteristicQuestion,
   CharacteristicResult,
   AnswerType,
-} from "../../../docs/interface";//後から修正
+} from "@/types/interface";//後から修正
 
-import charactaQuestions from '../../db/characta.json'; //データはそのままもってくる    
+import charactaQuestions from './characta.json'; //データはそのままもってくる    
 
 // バックエンド関数
-import { saveCharacteristicResults } from "../../backend/selfAnalysisService";//後から修正
+import { storeCharactaristicResult } from "./backend";//後から修正
 
 export default function SelfAnalysisPage() {
   const [questions, setQuestions] = useState<CharacteristicQuestion[]>([]);
@@ -31,7 +31,7 @@ export default function SelfAnalysisPage() {
       ...currentQuestion,
       answer,
     };
-    saveCharacteristicResults(result); //関数の名前
+    storeCharactaristicResult(result); //関数の名前
     setCurrentIndex(currentIndex + 1);
     setDragOffset(0);
   };

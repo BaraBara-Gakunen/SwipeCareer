@@ -1,9 +1,9 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import { Company, CompanyResult, AnswerType } from "../../lib/interface";
+import { Company, CompanyResult, AnswerType } from "@/types/interface";
 
 // バックエンド関数
-import { getFilteredCompanies, saveCompanyResults } from "../../lib/companyService";
+import { calcAndGetFilteredCompanies, storeCompanyResult } from "./backend";
 
 export default function CompanyAnalysisPage() {
   const [companies, setCompanies] = useState<Company[]>([]);
@@ -17,7 +17,7 @@ export default function CompanyAnalysisPage() {
   }, []);
 
   const loadCompanies = async () => {
-    const data = await getFilteredCompanies(); // 関数
+    const data = await calcAndGetFilteredCompanies(); // 関数
     setCompanies(data);
   };
 
@@ -29,7 +29,7 @@ export default function CompanyAnalysisPage() {
       ...currentCompany,
       answer,
     };
-    saveCompanyResults(result); // バックエンドに送信
+    storeCompanyResult(result); // バックエンドに送信
     setCurrentIndex(currentIndex + 1);
     setDragOffset(0);
   };
