@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import { Company, CompanyResult, AnswerType } from "@/types/interface";
+import { Company, CompanyResult, AnswerType } from "@/types/types";
 import { useRouter } from "next/navigation";
 
 // バックエンド関数

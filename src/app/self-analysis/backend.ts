@@ -1,5 +1,7 @@
-import { CharacteristicResult } from "@/types/interface"
+import { CharacteristicResult } from "@/types/types"
 
-export const storeCharactaristicResult = async (result: CharacteristicResult): Promise<void> => {
-    return;
+export const characteristicResults: CharacteristicResult[] = [];
+
+export const storeCharacteristicResult = async (result: CharacteristicResult): Promise<void> => {
+    characteristicResults.push(result);
 }

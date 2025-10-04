@@ -1,6 +1,6 @@
 import { GoogleGenAI } from "@google/genai";
 import { makePrompt, Instruction } from "./prompt";
-import { MatchedCompany } from "@/types/interface";
+import { MatchedCompany } from "@/types/types";
 
 
 export const makeESDraft = async (content: MatchedCompany): Promise<string> => {

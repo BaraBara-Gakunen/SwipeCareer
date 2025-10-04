@@ -1,4 +1,4 @@
-import { MatchedCompany } from "@/types/interface";
+import { MatchedCompany } from "@/types/types";
 
 
 export const Instruction: string = `

@@ -5,12 +5,12 @@ import {
   CharacteristicQuestion,
   CharacteristicResult,
   AnswerType,
-} from "@/types/interface";//後から修正
+} from "@/types/types";
 
 import charactaQuestions from './characta.json'; //データはそのままもってくる    
 
 // バックエンド関数
-import { storeCharactaristicResult } from "./backend";//後から修正
+import { storeCharacteristicResult } from "./backend";//後から修正
 
 export default function SelfAnalysisPage() {
   const [questions, setQuestions] = useState<CharacteristicQuestion[]>([]);
@@ -33,7 +33,7 @@ export default function SelfAnalysisPage() {
       ...currentQuestion,
       answer,
     };
-    storeCharactaristicResult(result); //関数の名前
+    storeCharacteristicResult(result); // バックエンドに送信
     setCurrentIndex(currentIndex + 1);
     setDragOffset(0);
   };

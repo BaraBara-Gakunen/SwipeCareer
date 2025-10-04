@@ -1,5 +1,6 @@
 // src/backend/addFavoriteCompaniesAnalysis.ts
-import { CompanyResult, FavoriteCompaniesAnalysis, CompanyTag } from "@/types/interface";
+import { CompanyResult, FavoriteCompaniesAnalysis } from "@/types/types";
+import { CompanyTag } from "@/types/companyTag";
 
 /**
  * Phase2 の CompanyResult[] を受け取り、

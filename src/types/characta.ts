@@ -1,0 +1,122 @@
+// 人の属性の列挙
+// これの増加に合わせて、CharacteristicPairも増やす
+const Characteristic = {
+  // --- 基本的な性格 ---
+  Social: "Social",           // 社交的
+  Introverted: "Introverted", // 内向的
+  Leadership: "Leadership",   // リーダーシップ
+  Cooperative: "Cooperative", // 協調性
+  Analytical: "Analytical",   // 分析的
+  Intuitive: "Intuitive",     // 直感的
+  Planner: "Planner",         // 計画的
+  Spontaneous: "Spontaneous", // 自発的
+  Realistic: "Realistic",     // 現実的
+  Idealistic: "Idealistic",   // 理想主義
+  Optimistic: "Optimistic",   // 楽観的
+  Pessimistic: "Pessimistic", // 悲観的
+  Creative: "Creative",       // 創造的
+  Logical: "Logical",         // 論理的
+  Bold: "Bold",               // 大胆
+  Cautious: "Cautious",       // 慎重
+  Sincere: "Sincere",         // 誠実
+  Flexible: "Flexible",       // 柔軟
+  Ambitious: "Ambitious",     // 野心的
+  Humble: "Humble",           // 謙虚
+  Curious: "Curious",         // 好奇心旺盛
+  Inquisitive: "Inquisitive", // 探求心が強い
+  Patient: "Patient",         // 忍耐強い
+  Hasty:   "Hasty",           //　性急 
+
+  // --- 感情・感受性 ---
+  Sensitive: "Sensitive", // 感受性豊か
+  Calm: "Calm",           // 冷静沈着
+  Passionate: "Passionate", // 情熱的
+  Empathetic: "Empathetic", // 共感力が高い
+  EmotionallyExpressive: "EmotionallyExpressive", // 感情表現が豊か
+  PokerFaced: "PokerFaced", // ポーカーフェイス
+  Delicate: "Delicate", // 繊細
+
+  // --- 思考・判断 ---
+  Objective: "Objective", // 客観的
+  Subjective: "Subjective", // 主観的
+  Perfectionist: "Perfectionist", // 完璧主義
+  Pragmatic: "Pragmatic", // 実用主義
+  DetailOriented: "DetailOriented", // 細部にこだわる
+  BigPictureThinker: "BigPictureThinker", // 全体像を捉える
+  UniqueThinker: "UniqueThinker", // 発想がユニーク
+  Innovative: "Innovative", // 革新的
+  DataDriven: "DataDriven", // データドリブン
+  FutureOriented: "FutureOriented", // 未来志向
+  PresentOriented: "PresentOriented", // 現在志向
+  ExperienceBased: "ExperienceBased", // 経験重視
+  TheoryBased: "TheoryBased", // 理論重視
+  MultiFaceted: "MultiFaceted", // 多角的視点
+  Skeptical: "Skeptical", // 懐疑的
+  QuickDecisionMaker: "QuickDecisionMaker", // 決断が速い
+  DeliberateThinker: "DeliberateThinker", // 熟考型
+  Perceptive: "Perceptive", // 観察力が鋭い
+
+  // --- 対人・コミュニケーション ---
+  Independent: "Independent", // 自立心が強い
+  Dependent: "Dependent", // 依存的
+  Competitive: "Competitive", // 競争心が強い
+  Harmonious: "Harmonious", // 調和を重んじる
+  GoodListener: "GoodListener", // 聞き上手
+  GoodSpeaker: "GoodSpeaker", // 話し上手
+  MoodMaker: "MoodMaker", // ムードメーカー
+  Supporter: "Supporter", // サポーター
+  TeamPlayer: "TeamPlayer", // チームプレイヤー
+  UnsungHero: "UnsungHero", // 縁の下の力持ち
+  Talkative: "Talkative", // おしゃべり
+  Quiet: "Quiet", // 物静か
+
+  // --- 行動・スタイル ---
+  RiskTaker: "RiskTaker",   // リスクを恐れない
+  RiskAverse: "RiskAverse", // リスク回避型
+  StabilityOriented: "StabilityOriented", // 安定志向
+  ChangeOriented: "ChangeOriented",       // 変化志向
+  Traditional: "Traditional",             // 伝統派
+  InnovativeThinker: "InnovativeThinker", // 革新派
+  Disciplined: "Disciplined",   // 規律正しい
+  FreeSpirited: "FreeSpirited", // 自由奔放
+  HardWorker: "HardWorker",     // 努力家
+  EfficiencyFocused: "EfficiencyFocused", // 効率重視
+  ProcessOriented: "ProcessOriented", // プロセス重視
+  ResultOriented: "ResultOriented", // 結果重視
+  ChallengeLover: "ChallengeLover", // 挑戦を楽しむ
+  Pacifist: "Pacifist",         // 平和主義
+  Dedicated: "Dedicated",       // 献身的
+  SelfPaced: "SelfPaced",       // マイペース
+  Confident: "Confident",       // 自信家
+  Reserved: "Reserved",       // 控えめ
+  Specialist: "Specialist",   // 狭く深く
+  Generalist: "Generalist",   // 広く浅く
+  Stubborn: "Stubborn",       // 頑固
+  OpenMinded: "OpenMinded",   // 素直
+  Thrifty: "Thrifty",         // 倹約家
+  Spendthrift: "Spendthrift", // 浪費家
+  Organized: "Organized", // 整理整頓が得意
+  IndividualWorker: "IndividualWorker", // 個人で集中
+  Persistent: "Persistent", // 継続力がある
+  QuickToAct: "QuickToAct", // 瞬発力が高い
+  Proactive: "Proactive",   // 行動力がある
+  Thinker: "Thinker",       // 考えるのが好き
+  Tenacious: "Tenacious", // 粘り強い
+  Adventurous: "Adventurous", // 冒険好き
+  LoserHating: "LoserHating", // 負けず嫌い 
+
+  // --- 資質・能力 ---
+  StressResistant: "StressResistant", // ストレスに強い
+  Humorous: "Humorous",               // ユーモアがある
+  Serious: "Serious",                 // 真面目
+  Aesthetic: "Aesthetic",                       // 美的センス
+  FunctionalityFocused: "FunctionalityFocused", // 機能性重視
+  GoodAtNurturing: "GoodAtNurturing",           // 育成が得意
+  EnjoysPressure: "EnjoysPressure", // プレッシャーを楽しむ
+  Fair: "Fair",                     // 公平
+  Generous: "Generous",             // 寛大
+  StrongSenseOfJustice: "StrongSenseOfJustice", // 正義感が強い
+  Easygoing: "Easygoing", // おおらか
+} as const;
+ 
+export type Characteristic = typeof Characteristic[keyof typeof Characteristic];
