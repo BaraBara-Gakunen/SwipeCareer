@@ -26,8 +26,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
   } catch (error) {
     if (error instanceof Error) {
       console.error("エラーメッセージ:", error.message);
-      
-      le.error("スタックトレース:", error.stack);
+      console.error("スタックトレース:", error.stack);
     }
     
     return NextResponse.json(

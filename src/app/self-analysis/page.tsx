@@ -32,7 +32,7 @@ export default function SelfAnalysisPage() {
       ...currentQuestion,
       answer,
     };
-    storeCharacteristicResult(result); // バックエンドに送信
+    storeCharacteristicResult(result);
     // YESNOラベルを非表示にしてからカードをスワイプし、次の質問に移る
     setShowLabels(false);
     setTimeout(() => {
