@@ -52,16 +52,18 @@ export default function MainPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50">
       {/* ヘッダー */}
-      <header className="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-0 py-4 flex items-center justify-between">
-          <h1 className="text-5xl font-bold bg-gradient-to-r bg-rose-300 bg-clip-text text-transparent">
-            すわいぷきゃりあ
-          </h1>
-          <div className="flex items-center gap-2 text-rose-600">
-            <span className="text-sm font-medium">就活マッチング</span>
-          </div>
-        </div>
-      </header>
+      <header className="bg-white/90 backdrop-blur-md shadow-lg shadow-pink-300 sticky top-0 z-50 rounded-b-3xl">
+    <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    {/* タイトル */}
+    <h1 className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-pink-400 via-rose-300 to-purple-300 bg-clip-text text-transparent">
+      すわいぷきゃりあ
+    </h1>
+
+    <div className="flex items-center gap-2 text-pink-500">
+      <span className="text-sm md:text-base font-medium"> 就活マッチング 🔍</span>
+    </div>
+    </div>
+    </header>
 
       {/* スライドショーは横幅フルにするので main の外に配置 */}
       <div className="relative w-full h-screen md:h-[90vh] overflow-hidden">
