@@ -6,11 +6,8 @@ import {
   CharacteristicResult,
   AnswerType,
 } from "@/types/types";
-
-import charactaQuestions from './characta.json'; //データはそのままもってくる    
-
-// バックエンド関数
-import { storeCharacteristicResult } from "./backend";//後から修正
+import charactaQuestions from './characta.json';    
+import { storeCharacteristicResult } from "./characteristicStore";
 
 export default function SelfAnalysisPage() {
   const [questions, setQuestions] = useState<CharacteristicQuestion[]>([]);

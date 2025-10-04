@@ -4,7 +4,8 @@ import { Company, CompanyResult, AnswerType } from "@/types/types";
 import { useRouter } from "next/navigation";
 
 // バックエンド関数
-import { calcAndGetFilteredCompanies, storeCompanyResult } from "./backend";
+import { calcAndGetFilteredCompanies } from "./backend";
+import { storeCompanyResult } from "./companyResultStore";
 
 export default function CompanyAnalysisPage() {
   const [companies, setCompanies] = useState<Company[]>([]);

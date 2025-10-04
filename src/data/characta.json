@@ -6,247 +6,147 @@
   },
   {
     "id": 2,
-    "question": "自分から、グループのリーダーに立候補することはない",
-    "characteristic": { "Yes": "Supporter", "No": "Leadership" }
+    "question": "自分から、グループのリーダーに立候補することが多い",
+    "characteristic": { "Yes": "Leadership", "No": "Supporter" }
   },
   {
     "id": 3,
-    "question": "最後は、理屈より「ピンときた」感覚で決める",
-    "characteristic": { "Yes": "Intuitive", "No": "Analytical" }
+    "question": "チームで働くことが好きだ",
+    "characteristic": { "Yes": "Cooperative", "No": "Independent" }
   },
   {
     "id": 4,
-    "question": "旅行では、大まかな行き先だけ決めて出発したい",
-    "characteristic": { "Yes": "Spontaneous", "No": "Planner" }
+    "question": "データや事実をもとに判断することが多い",
+    "characteristic": { "Yes": "Analytical", "No": "Creative" }
   },
   {
     "id": 5,
-    "question": "「あるべき論」より「できること」から考える",
-    "characteristic": { "Yes": "Realistic", "No": "Idealistic" }
-  },
-  {
-    "id": 6,
-    "question": "物事は「きっと上手くいく」と考えることが多い",
-    "characteristic": { "Yes": "Optimistic", "No": "Pessimistic" }
-  },
-  {
-    "id": 7,
-    "question": "考える時は、順序だてるよりも閃きを重視する",
+    "question": "新しいアイデアを考えるのが得意だ",
     "characteristic": { "Yes": "Creative", "No": "Logical" }
   },
   {
+    "id": 6,
+    "question": "物事を論理的に整理して考えるのが好きだ",
+    "characteristic": { "Yes": "Logical", "No": "Creative" }
+  },
+  {
+    "id": 7,
+    "question": "慎重に考えてから行動することが多い",
+    "characteristic": { "Yes": "Cautious", "No": "Bold" }
+  },
+  {
     "id": 8,
-    "question": "「まずやってみよう」と行動することが多い",
+    "question": "リスクを取ることを恐れない",
     "characteristic": { "Yes": "Bold", "No": "Cautious" }
   },
   {
     "id": 9,
-    "question": "マニュアル通りに進めるのが、一番安心する",
-    "characteristic": { "Yes": "Sincere", "No": "Flexible" }
+    "question": "状況に応じて柔軟に対応できる",
+    "characteristic": { "Yes": "Flexible", "No": "Sincere" }
   },
   {
     "id": 10,
-    "question": "一度「これが正しい」と思ったら、意見を曲げない",
-    "characteristic": { "Yes": "Stubborn", "No": "OpenMinded" }
-  },
-  {
-    "id": 11,
-    "question": "人生には、スリルや挑戦が必要だと思う",
+    "question": "高い目標に向かって挑戦するのが好きだ",
     "characteristic": { "Yes": "Ambitious", "No": "StabilityOriented" }
   },
   {
+    "id": 11,
+    "question": "新しいことを学ぶのが好きだ",
+    "characteristic": { "Yes": "Curious", "No": "Realistic" }
+  },
+  {
     "id": 12,
-    "question": "色々なことを知っている人に魅力を感じる",
-    "characteristic": { "Yes": "Curious", "No": "Inquisitive" }
+    "question": "長期的に粘り強く取り組むことができる",
+    "characteristic": { "Yes": "Patient", "No": "Bold" }
   },
   {
     "id": 13,
-    "question": "行列に並んでまで、食べたいものはない",
-    "characteristic": { "Yes": "Hasty", "No": "Patient" }
+    "question": "他人の気持ちを理解することが得意だ",
+    "characteristic": { "Yes": "Empathetic", "No": "Analytical" }
   },
   {
     "id": 14,
-    "question": "映画やドラマを見ると、つい感情移入してしまう",
-    "characteristic": { "Yes": "Sensitive", "No": "Calm" }
+    "question": "困難な状況でも冷静でいられる",
+    "characteristic": { "Yes": "Calm", "No": "Empathetic" }
   },
   {
     "id": 15,
-    "question": "好きなことについて語ると、つい熱くなってしまう",
-    "characteristic": { "Yes": "Passionate", "No": "Objective" }
+    "question": "自分で考えて行動することが多い",
+    "characteristic": { "Yes": "Independent", "No": "Cooperative" }
   },
   {
     "id": 16,
-    "question": "困った時、まず誰かに相談する",
-    "characteristic": { "Yes": "Dependent", "No": "Independent" }
+    "question": "チームの一員として協力するのが得意だ",
+    "characteristic": { "Yes": "TeamPlayer", "No": "Independent" }
   },
   {
     "id": 17,
-    "question": "友人の成功を、自分のことのように喜べる",
-    "characteristic": { "Yes": "Empathetic", "No": "Competitive" }
+    "question": "人の話をじっくり聞くのが好きだ",
+    "characteristic": { "Yes": "GoodListener", "No": "Leadership" }
   },
   {
     "id": 18,
-    "question": "仕事では、対立を避けることを優先してしまう",
-    "characteristic": { "Yes": "Harmonious", "No": "Perfectionist" }
+    "question": "周囲をサポートすることにやりがいを感じる",
+    "characteristic": { "Yes": "Supporter", "No": "Leadership" }
   },
   {
     "id": 19,
-    "question": "使ったことのないツールは、とりあえず試してみる",
-    "characteristic": { "Yes": "Pragmatic", "No": "RiskAverse" }
+    "question": "従来のやり方を変えることに積極的だ",
+    "characteristic": { "Yes": "Innovative", "No": "Realistic" }
   },
   {
     "id": 20,
-    "question": "物事は、細かい部分より大枠でとらえる",
-    "characteristic": { "Yes": "BigPictureThinker", "No": "DetailOriented" }
+    "question": "実現可能性を重視して判断する",
+    "characteristic": { "Yes": "Realistic", "No": "Innovative" }
   },
   {
     "id": 21,
-    "question": "人からの何気ない一言を、後から考えてしまうことがある",
-    "characteristic": { "Yes": "Delicate", "No": "StressResistant" }
+    "question": "細かいところまで丁寧に確認する",
+    "characteristic": { "Yes": "DetailOriented", "No": "BigPictureThinker" }
   },
   {
     "id": 22,
-    "question": "「みんなが使っている」という理由で、モノを選ぶことがある",
-    "characteristic": { "Yes": "Traditional", "No": "UniqueThinker" }
+    "question": "全体像を把握することを優先する",
+    "characteristic": { "Yes": "BigPictureThinker", "No": "DetailOriented" }
   },
   {
     "id": 23,
-    "question": "新しいやり方を取り入れることに、少し抵抗がある",
-    "characteristic": { "Yes": "Disciplined", "No": "Innovative" }
+    "question": "成果や結果を重視する",
+    "characteristic": { "Yes": "ResultOriented", "No": "ProcessOriented" }
   },
   {
     "id": 24,
-    "question": "時間に縛られず、自由に行動したい",
-    "characteristic": { "Yes": "FreeSpirited", "No": "Disciplined" }
-  },
-  {
-    "id": 25,
-    "question": "会話では、つい自分の話が多くなってしまう",
-    "characteristic": { "Yes": "GoodSpeaker", "No": "GoodListener" }
-  },
-  {
-    "id": 26,
-    "question": "近道よりも、遠回りでも着実な道を選ぶ",
-    "characteristic": { "Yes": "HardWorker", "No": "EfficiencyFocused" }
-  },
-  {
-    "id": 27,
-    "question": "頑張った過程も、きちんと評価してほしい",
+    "question": "過程や手順を大切にする",
     "characteristic": { "Yes": "ProcessOriented", "No": "ResultOriented" }
   },
   {
+    "id": 25,
+    "question": "挑戦的な課題に取り組むことが好きだ",
+    "characteristic": { "Yes": "ChallengeLover", "No": "StabilityOriented" }
+  },
+  {
+    "id": 26,
+    "question": "安定した環境を好む",
+    "characteristic": { "Yes": "StabilityOriented", "No": "ChallengeLover" }
+  },
+  {
+    "id": 27,
+    "question": "自ら率先して行動することが多い",
+    "characteristic": { "Yes": "Proactive", "No": "Patient" }
+  },
+  {
     "id": 28,
-    "question": "自分の意見は、周りと違ってもはっきり言うべきだ",
-    "characteristic": { "Yes": "ChallengeLover", "No": "Pacifist" }
+    "question": "約束や責任を重んじる",
+    "characteristic": { "Yes": "Sincere", "No": "Flexible" }
   },
   {
     "id": 29,
-    "question": "大きな買い物は、即決することが多い",
-    "characteristic": { "Yes": "QuickDecisionMaker", "No": "DeliberateThinker" }
+    "question": "プレッシャーがあっても平常心を保てる",
+    "characteristic": { "Yes": "StressResistant", "No": "Empathetic" }
   },
   {
     "id": 30,
-    "question": "つい、自分のことより他人を優先してしまう",
-    "characteristic": { "Yes": "Dedicated", "No": "SelfPaced" }
-  },
-  {
-    "id": 31,
-    "question": "場の空気を読んで、盛り上げ役になることが多い",
-    "characteristic": { "Yes": "MoodMaker", "No": "Supporter" }
-  },
-  {
-    "id": 32,
-    "question": "自分の成果をアピールするのは、少し苦手だ",
-    "characteristic": { "Yes": "Reserved", "No": "Confident" }
-  },
-  {
-    "id": 33,
-    "question": "器用貧乏より、不器用でも専門家でありたい",
-    "characteristic": { "Yes": "Specialist", "No": "Generalist" }
-  },
-  {
-    "id": 34,
-    "question": "人からのアドバイスは、素直に受け入れる方だ",
-    "characteristic": { "Yes": "OpenMinded", "No": "Skeptical" }
-  },
-  {
-    "id": 35,
-    "question": "嬉しいとき、つい顔がにやけてしまう",
-    "characteristic": { "Yes": "EmotionallyExpressive", "No": "PokerFaced" }
-  },
-  {
-    "id": 36,
-    "question": "欲しいものがあると、値段を気にせず買ってしまう",
-    "characteristic": { "Yes": "Spendthrift", "No": "Thrifty" }
-  },
-  {
-    "id": 37,
-    "question": "カバンの中身は、いつも整理されている",
-    "characteristic": { "Yes": "Organized", "No": "Creative" }
-  },
-  {
-    "id": 38,
-    "question": "周りに人がいると、作業に集中できないことがある",
-    "characteristic": { "Yes": "IndividualWorker", "No": "TeamPlayer" }
-  },
-  {
-    "id": 39,
-    "question": "将来の計画を立てるのが、好きだ",
-    "characteristic": { "Yes": "FutureOriented", "No": "PresentOriented" }
-  },
-  {
-    "id": 40,
-    "question": "説明書を読むより、まず触ってみる",
-    "characteristic": { "Yes": "ExperienceBased", "No": "TheoryBased" }
-  },
-  {
-    "id": 41,
-    "question": "真面目な人だと、よく言われる",
-    "characteristic": { "Yes": "Serious", "No": "Humorous" }
-  },
-  {
-    "id": 42,
-    "question": "モノを選ぶときは、機能よりデザインを重視する",
-    "characteristic": { "Yes": "Aesthetic", "No": "FunctionalityFocused" }
-  },
-  {
-    "id": 43,
-    "question": "夏休みの宿題は、最終日にまとめてやるタイプだった",
-    "characteristic": { "Yes": "QuickToAct", "No": "Persistent" }
-  },
-  {
-    "id": 44,
-    "question": "人に何かを教えるのが、好きだ",
-    "characteristic": { "Yes": "GoodAtNurturing", "No": "Inquisitive" }
-  },
-  {
-    "id": 45,
-    "question": "主役になるより、サポート役の方が安心する",
-    "characteristic": { "Yes": "UnsungHero", "No": "EnjoysPressure" }
-  },
-  {
-    "id": 46,
-    "question": "知らない場所では、まず地図を確認する",
-    "characteristic": { "Yes": "Perceptive", "No": "Proactive" }
-  },
-  {
-    "id": 47,
-    "question": "一度始めたことは、最後までやり遂げないと気が済まない",
-    "characteristic": { "Yes": "Tenacious", "No": "Fair" }
-  },
-  {
-    "id": 48,
-    "question": "ルールを破っても、仕方ないときがあると思う",
-    "characteristic": { "Yes": "Generous", "No": "StrongSenseOfJustice" }
-  },
-  {
-    "id": 49,
-    "question": "知らない場所へ、ふらっと出かけるのが好きだ",
-    "characteristic": { "Yes": "Adventurous", "No": "StabilityOriented" }
-  },
-  {
-    "id": 50,
-    "question": "ゲームは、勝つまでやめられない",
-    "characteristic": { "Yes": "LoserHating", "No": "Easygoing" }
+    "question": "誰に対しても公平に接することを心がけている",
+    "characteristic": { "Yes": "Fair", "No": "Empathetic" }
   }
 ]

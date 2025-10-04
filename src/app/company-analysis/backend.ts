@@ -1,40 +1,88 @@
-import { CompanyResult, SelfAnalysis, CharacteristicResult } from "@/types/types"
-import { characteristicResults } from "@/app/self-analysis/backend"
+import { Company } from "@/types/types"
+import { getSelfAnalysis } from "@/app/self-analysis/characteristicStore"
+import { Characteristic } from "@/types/characta"
+import companiesData from "@/data/company.json";
 
+const companies = companiesData as Company[];
 
-export const companiesResults: CompanyResult[] = [];
-export const storeCompanyResult = async (result: CompanyResult): Promise<void> => {
-    companiesResults.push(result);
-}
+// スコアリング定数（results/backend.tsと同じ）
+const CHARACTERISTIC_SCORE_MIN = 0;    // 負の値は0として扱う
+const CHARACTERISTIC_SCORE_MAX = 60;   // 現実的な最大値
 
-export function buildSelfAnalysis(
-  selfAnalysis: SelfAnalysis,
-  results: CharacteristicResult[] = characteristicResults,
-): void {
-  // スコアがまだなければ初期化
-  if (!selfAnalysis.characteristicsScore) {
-    selfAnalysis.characteristicsScore = {};
-  }
+/**
+ * 生スコアを0~1の範囲に正規化
+ */
+const normalizeScore = (score: number, min: number, max: number): number => {
+    if (max === min) return 0.5;
+    // 負の値は0として扱う
+    const clampedScore = Math.max(0, score);
+    const normalized = (clampedScore - min) / (max - min);
+    return Math.max(0, Math.min(1, normalized));
+};
 
-  for (const characteristicResult of results) {
-    // 結果はただの文字列、"Generous" や "Brave" など
-    const yesKey = characteristicResult.characteristic.Yes;
-    const noKey = characteristicResult.characteristic.No;
-
-    // 初期化（undefinedのままだと NaN(数字じゃない) になるため）
-    // 例えば "Generous" や "Brave" がまだスコア表にない場合、0に初期化する
-    // ??=の意味は「もし左辺が null または undefined なら、右辺を代入する」
-    selfAnalysis.characteristicsScore[yesKey] ??= 0;
-    selfAnalysis.characteristicsScore[noKey] ??= 0;
-
-    if (characteristicResult.answer === "Yes") {
-      // !の意味は「これは絶対にundefinedじゃないよ」というTypeScriptへのヒント
-      // selfAnalysis.characteristicsScore[yesKey] は Characteristicのキーに対応する値なので
-      selfAnalysis.characteristicsScore[yesKey]! += 1;
-      selfAnalysis.characteristicsScore[noKey]! -= 1;
-    } else if (characteristicResult.answer === "No") {
-      selfAnalysis.characteristicsScore[yesKey]! -= 1;
-      selfAnalysis.characteristicsScore[noKey]! += 1;
+/**
+ * 適性マッチ度を計算 (0~100)
+ * この段階では適性のみで判断（企業分析はまだ実施していないため）
+ */
+const calculateAptitudeScore = (
+    wants: Characteristic[],
+    characteristicsScore: { [key in Characteristic]?: number }
+): number => {
+    if (wants.length === 0) {
+        return 0;
     }
-  }
+
+    let totalNormalizedScore = 0;
+    let matchedCount = 0;
+
+    wants.forEach((wantedCharacteristic) => {
+        const rawScore = characteristicsScore[wantedCharacteristic] || 0;
+        
+        // スコアが正の値の場合のみマッチとみなす
+        if (rawScore > 0) {
+            const normalizedScore = normalizeScore(rawScore, CHARACTERISTIC_SCORE_MIN, CHARACTERISTIC_SCORE_MAX);
+            totalNormalizedScore += normalizedScore;
+            matchedCount++;
+        }
+    });
+
+    // マッチした特性の平均正規化スコア
+    const averageNormalizedScore = matchedCount > 0 ? totalNormalizedScore / matchedCount : 0;
+    
+    // マッチ率（何%の求める特性を満たしているか）
+    const rawMatchRate = matchedCount / wants.length;
+    
+    // マッチ率の影響を緩和（平方根を使用）
+    const adjustedMatchRate = Math.sqrt(rawMatchRate);
+    
+    // 適性スコアの計算：個別スコア重視
+    const aptitudeScore = (averageNormalizedScore * 0.7 + adjustedMatchRate * 0.3) * 100;
+
+    return Math.round(aptitudeScore);
+};
+
+export const calcAndGetFilteredCompanies = async (): Promise<Company[]> => {
+    // localStorageからselfAnalysisを取得
+    const selfAnalysis = getSelfAnalysis();
+        
+    // 各企業とselfAnalysisのマッチングスコアを計算（0~100スケール）
+    const companiesWithScore = companies.map((company) => {
+        const matchScore = calculateAptitudeScore(
+            company.wants as Characteristic[],
+            selfAnalysis.characteristicsScore
+        );
+
+        return {
+            company,
+            matchScore,
+        };
+    });
+
+    // マッチスコアの高い順にソートして上位30社を取得
+    const topCompanies = companiesWithScore
+        .sort((a, b) => b.matchScore - a.matchScore)
+        .slice(0, 30)
+        .map((item) => item.company);
+
+    return topCompanies;
 }

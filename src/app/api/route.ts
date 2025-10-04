@@ -8,15 +8,28 @@ import { makeESDraft } from "./gemini";
 export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
     const body = await req.json();
+    
     const inputData = body.company || body.content;
     // const inputData = mockMatchedCompany;
 
+    if (!inputData) {
+      return NextResponse.json(
+        { success: false, error: "No company data provided" },
+        { status: 400 }
+      );
+    }
+
     const es = await makeESDraft(inputData);
-    console.debug("Generated ES: \r\n====================", es, "\r\n====================\r\n");
+    
     return NextResponse.json({ success: true, es });
 
   } catch (error) {
-    console.debug("Error in API route:", error);
+    if (error instanceof Error) {
+      console.error("エラーメッセージ:", error.message);
+      
+      le.error("スタックトレース:", error.stack);
+    }
+    
     return NextResponse.json(
       { 
         success: false, 
