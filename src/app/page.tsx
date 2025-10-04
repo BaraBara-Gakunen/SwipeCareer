@@ -116,8 +116,11 @@ export default function MainPage() {
       {/* メインコンテンツ */}
       <main className="max-w-6xl mx-auto px-4 py-12">
         {/* マッチング開始セクション */}
-        <div className="text-center">
-          <div className="bg-white rounded-3xl shadow-xl p-12 mb-8">
+        <div className="text-center mb-12">
+          <div className="inline-block bg-white rounded-3xl shadow-xl p-12 relative">
+            <div className="absolute -top-6 right-6 bg-rose-200 text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg">
+              3ステップで完了！
+            </div>
             <h3 className="text-3xl font-bold text-gray-800 mb-4">
               あなたの理想の企業を見つけましょう
             </h3>
@@ -134,8 +137,16 @@ export default function MainPage() {
             </button>
           </div>
         </div>
-      </main>
 
+        {/* カード */}
+        <div className="grid md:grid-cols-3 gap-8">
+          <div className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl hover:translate-y-2 transition-all duration-300">
+            <h4 className="font-bold text-xl mb-2">自己分析</h4>
+            <p className="text-gray-600">自分の性格や興味を簡単な質問で分析します</p>
+          </div>
+        </div>
+      </main>
+      
       {/* フッター */}
       <footer className="mt-20 py-8 text-center text-gray-600">
         <p className="text-sm">
