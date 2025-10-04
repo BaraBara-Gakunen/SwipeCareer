@@ -283,7 +283,7 @@ export const CompanyTag = {
   ManyPatents: "特許多数",
   HasADream: "夢がある",
 } as const;
-type CompanyTag = typeof CompanyTag[keyof typeof CompanyTag];
+export type CompanyTag = typeof CompanyTag[keyof typeof CompanyTag];
 
 // 企業の情報
 export interface Company {
