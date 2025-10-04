@@ -1,5 +1,5 @@
 // 答え方
-type AnswerType = "Yes" | "No";
+export type AnswerType = "Yes" | "No";
 
 
 // 人の属性の列挙（今の中身は例）
@@ -127,11 +127,11 @@ type Characteristic = typeof Characteristic[keyof typeof Characteristic];
 
 
 // 人の属性の列挙を対立するペアにまとめたもの
-type CharacteristicPair = Record<AnswerType, Characteristic>;
+export type CharacteristicPair = Record<AnswerType, Characteristic>;
 
 
 // Front.Phase1に表示される質問の実態
-interface CharacteristicQuestion {
+export interface CharacteristicQuestion {
     id: number; // ID
     question: string; // 質問文
     characteristic: CharacteristicPair; // Yes / NO のそれぞれに対応する属性
@@ -139,7 +139,7 @@ interface CharacteristicQuestion {
 
 
 // Backに送る、質問の内容と回答
-interface CharacteristicResult extends CharacteristicQuestion {
+export interface CharacteristicResult extends CharacteristicQuestion {
     answer: AnswerType; // 回答
 }
 
@@ -286,7 +286,7 @@ export const CompanyTag = {
 type CompanyTag = typeof CompanyTag[keyof typeof CompanyTag];
 
 // 企業の情報
-interface Company {
+export interface Company {
     id: number;
     name: string; // 企業名
     photo: string; // 企業ロゴのURL（file path）
@@ -297,7 +297,7 @@ interface Company {
 }
 
 // Backに送る、質問の内容と回答
-interface CompanyResult extends Company {
+export interface CompanyResult extends Company {
     answer: AnswerType;
 }
 
@@ -306,7 +306,7 @@ interface CompanyResult extends Company {
 // 自己分析の結果
 // Front.Phase1から送られるCharacteristicResultの蓄積から作成する
 // これとcompany.wantsを突き合わせて、上位の企業をCompany[]に詰めてFront.Phase2に送る
-interface SelfAnalysis {
+export interface SelfAnalysis {
     characteristicsScore: {
         [key in Characteristic]?: number; // 属性の傾向のスコアリング
     };
@@ -314,21 +314,21 @@ interface SelfAnalysis {
 
 // 好みの企業分析の結果
 // Front.Phase2から送られるCompanyResultの蓄積から作成する
-interface FavoriteCompaniesAnalysis {
+export interface FavoriteCompaniesAnalysis {
     tagsScore: {
         [key in CompanyTag]?: number; // 企業属性の好みのスコアリング
     };
 }
 
 // 属性とそのスコアリングのペア
-interface ScoredCharacteristic {
+export interface ScoredCharacteristic {
     characteristic: Characteristic;
     score: number; // 0 <= score <= 100
 }
 
 // マッチした企業の情報
 // SelfAnalysisとFavoriteCompaniesAnalysisを元に、全企業のうち上位のscoreの企業を4番の人にMatchedCompany[]として送る
-interface MatchedCompany extends Company {
+export interface MatchedCompany extends Company {
     score: number; // 0 <= score <= 100
     matchedCharacteristics: ScoredCharacteristic[]; // 企業が求める属性と自己分析のスコアリングのマッチング結果
 }
@@ -337,7 +337,7 @@ interface MatchedCompany extends Company {
 
 // 最終的な推薦結果
 // MatchedCompanyとAIが生成したESのドラフトをセットしFront.Phase3に送る
-interface RecommendationCompany {
+export interface RecommendationCompany {
     matchedCompany: MatchedCompany;
     esDraft: string;
 }
