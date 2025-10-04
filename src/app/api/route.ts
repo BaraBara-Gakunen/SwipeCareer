@@ -7,7 +7,8 @@ import { makeESDraft } from "./gemini";
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
-    const inputData = await req.json().then((data) => data.content);
+    const body = await req.json();
+    const inputData = body.company || body.content;
     // const inputData = mockMatchedCompany;
 
     const es = await makeESDraft(inputData);
