@@ -9,8 +9,8 @@ export default function MainPage() {
     { image: "/image3.png" },
     {
       image:
-        "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1600&h=900&fit=crop",
-      title: "スワイプで簡単自己分析",
+        "/image5.png",
+      
     },
     {
       image:
