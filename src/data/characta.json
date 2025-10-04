@@ -1,0 +1,152 @@
+[
+  {
+    "id": 1,
+    "question": "休日は、誰かと一緒に過ごすことが多い",
+    "characteristic": { "Yes": "Social", "No": "Introverted" }
+  },
+  {
+    "id": 2,
+    "question": "自分から、グループのリーダーに立候補することが多い",
+    "characteristic": { "Yes": "Leadership", "No": "Supporter" }
+  },
+  {
+    "id": 3,
+    "question": "チームで働くことが好きだ",
+    "characteristic": { "Yes": "Cooperative", "No": "Independent" }
+  },
+  {
+    "id": 4,
+    "question": "データや事実をもとに判断することが多い",
+    "characteristic": { "Yes": "Analytical", "No": "Creative" }
+  },
+  {
+    "id": 5,
+    "question": "新しいアイデアを考えるのが得意だ",
+    "characteristic": { "Yes": "Creative", "No": "Logical" }
+  },
+  {
+    "id": 6,
+    "question": "物事を論理的に整理して考えるのが好きだ",
+    "characteristic": { "Yes": "Logical", "No": "Creative" }
+  },
+  {
+    "id": 7,
+    "question": "慎重に考えてから行動することが多い",
+    "characteristic": { "Yes": "Cautious", "No": "Bold" }
+  },
+  {
+    "id": 8,
+    "question": "リスクを取ることを恐れない",
+    "characteristic": { "Yes": "Bold", "No": "Cautious" }
+  },
+  {
+    "id": 9,
+    "question": "状況に応じて柔軟に対応できる",
+    "characteristic": { "Yes": "Flexible", "No": "Sincere" }
+  },
+  {
+    "id": 10,
+    "question": "高い目標に向かって挑戦するのが好きだ",
+    "characteristic": { "Yes": "Ambitious", "No": "StabilityOriented" }
+  },
+  {
+    "id": 11,
+    "question": "新しいことを学ぶのが好きだ",
+    "characteristic": { "Yes": "Curious", "No": "Realistic" }
+  },
+  {
+    "id": 12,
+    "question": "長期的に粘り強く取り組むことができる",
+    "characteristic": { "Yes": "Patient", "No": "Bold" }
+  },
+  {
+    "id": 13,
+    "question": "他人の気持ちを理解することが得意だ",
+    "characteristic": { "Yes": "Empathetic", "No": "Analytical" }
+  },
+  {
+    "id": 14,
+    "question": "困難な状況でも冷静でいられる",
+    "characteristic": { "Yes": "Calm", "No": "Empathetic" }
+  },
+  {
+    "id": 15,
+    "question": "自分で考えて行動することが多い",
+    "characteristic": { "Yes": "Independent", "No": "Cooperative" }
+  },
+  {
+    "id": 16,
+    "question": "チームの一員として協力するのが得意だ",
+    "characteristic": { "Yes": "TeamPlayer", "No": "Independent" }
+  },
+  {
+    "id": 17,
+    "question": "人の話をじっくり聞くのが好きだ",
+    "characteristic": { "Yes": "GoodListener", "No": "Leadership" }
+  },
+  {
+    "id": 18,
+    "question": "周囲をサポートすることにやりがいを感じる",
+    "characteristic": { "Yes": "Supporter", "No": "Leadership" }
+  },
+  {
+    "id": 19,
+    "question": "従来のやり方を変えることに積極的だ",
+    "characteristic": { "Yes": "Innovative", "No": "Realistic" }
+  },
+  {
+    "id": 20,
+    "question": "実現可能性を重視して判断する",
+    "characteristic": { "Yes": "Realistic", "No": "Innovative" }
+  },
+  {
+    "id": 21,
+    "question": "細かいところまで丁寧に確認する",
+    "characteristic": { "Yes": "DetailOriented", "No": "BigPictureThinker" }
+  },
+  {
+    "id": 22,
+    "question": "全体像を把握することを優先する",
+    "characteristic": { "Yes": "BigPictureThinker", "No": "DetailOriented" }
+  },
+  {
+    "id": 23,
+    "question": "成果や結果を重視する",
+    "characteristic": { "Yes": "ResultOriented", "No": "ProcessOriented" }
+  },
+  {
+    "id": 24,
+    "question": "過程や手順を大切にする",
+    "characteristic": { "Yes": "ProcessOriented", "No": "ResultOriented" }
+  },
+  {
+    "id": 25,
+    "question": "挑戦的な課題に取り組むことが好きだ",
+    "characteristic": { "Yes": "ChallengeLover", "No": "StabilityOriented" }
+  },
+  {
+    "id": 26,
+    "question": "安定した環境を好む",
+    "characteristic": { "Yes": "StabilityOriented", "No": "ChallengeLover" }
+  },
+  {
+    "id": 27,
+    "question": "自ら率先して行動することが多い",
+    "characteristic": { "Yes": "Proactive", "No": "Patient" }
+  },
+  {
+    "id": 28,
+    "question": "約束や責任を重んじる",
+    "characteristic": { "Yes": "Sincere", "No": "Flexible" }
+  },
+  {
+    "id": 29,
+    "question": "プレッシャーがあっても平常心を保てる",
+    "characteristic": { "Yes": "StressResistant", "No": "Empathetic" }
+  },
+  {
+    "id": 30,
+    "question": "誰に対しても公平に接することを心がけている",
+    "characteristic": { "Yes": "Fair", "No": "Empathetic" }
+  }
+]
