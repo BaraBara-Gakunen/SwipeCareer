@@ -1,23 +1,23 @@
 // 答え方
-type AnswerType = "Yes" | "No";
+export type AnswerType = "Yes" | "No";
 
 
 // 人の属性の列挙（今の中身は例）
 // これの増加に合わせて、CharacteristicPairも増やす
-const Characteristic = {
+export const Characteristic = {
     Generous: "Generous",
     Brave: "Brave",
     Cautious: "Cautious",
 } as const;
-type Characteristic = typeof Characteristic[keyof typeof Characteristic];
+export type Characteristic = typeof Characteristic[keyof typeof Characteristic];
 
 
 // 人の属性の列挙を対立するペアにまとめたもの
-type CharacteristicPair = Record<AnswerType, Characteristic>;
+export type CharacteristicPair = Record<AnswerType, Characteristic>;
 
 
 // Front.Phase1に表示される質問の実態
-interface CharacteristicQuestion {
+export interface CharacteristicQuestion {
     id: number; // ID
     question: string; // 質問文
     characteristic: CharacteristicPair; // Yes / NO のそれぞれに対応する属性
@@ -25,14 +25,14 @@ interface CharacteristicQuestion {
 
 
 // Backに送る、質問の内容と回答
-interface CharacteristicResult extends CharacteristicQuestion {
+export interface CharacteristicResult extends CharacteristicQuestion {
     answer: AnswerType; // 回答
 }
 
 /* ----------------------------------------------------------------------------------- */
 
 // 企業の属性の列挙（今の中身は例）
-const CompanyTag = {
+export const CompanyTag = {
     IT: "IT",
     Finance: "Finance",
     Healthcare: "Healthcare",
@@ -41,7 +41,7 @@ const CompanyTag = {
 type CompanyTag = typeof CompanyTag[keyof typeof CompanyTag];
 
 // 企業の情報
-interface Company {
+export interface Company {
     id: number;
     name: string; // 企業名
     photo: string; // 企業ロゴのURL（file path）
@@ -52,7 +52,7 @@ interface Company {
 }
 
 // Backに送る、質問の内容と回答
-interface CompanyResult extends Company {
+export interface CompanyResult extends Company {
     answer: AnswerType;
 }
 
@@ -61,7 +61,7 @@ interface CompanyResult extends Company {
 // 自己分析の結果
 // Front.Phase1から送られるCharacteristicResultの蓄積から作成する
 // これとcompany.wantsを突き合わせて、上位の企業をCompany[]に詰めてFront.Phase2に送る
-interface SelfAnalysis {
+export interface SelfAnalysis {
     characteristicsScore: {
         [key in Characteristic]?: number; // 属性の傾向のスコアリング
     };
@@ -69,14 +69,14 @@ interface SelfAnalysis {
 
 // 好みの企業分析の結果
 // Front.Phase2から送られるCompanyResultの蓄積から作成する
-interface FavoriteCompaniesAnalysis {
+export interface FavoriteCompaniesAnalysis {
     tagsScore: {
         [key in CompanyTag]?: number; // 企業属性の好みのスコアリング
     };
 }
 
 // 属性とそのスコアリングのペア
-interface ScoredCharacteristic {
+export interface ScoredCharacteristic {
     characteristic: Characteristic;
     score: number; // 0 <= score <= 100
 }
