@@ -1,0 +1,162 @@
+[
+  {
+    "id": 1,
+    "question": "困っている人を見かけたら、すぐに助けますか？",
+    "characteristic": {
+      "Yes": "Generous",
+      "No": "Selfish"
+    }
+  },
+  {
+    "id": 2,
+    "question": "危険な状況でも、率先して行動しますか？",
+    "characteristic": {
+      "Yes": "Brave",
+      "No": "Cautious"
+    }
+  },
+  {
+    "id": 3,
+    "question": "初対面の人とでも、すぐに打ち解けられますか？",
+    "characteristic": {
+      "Yes": "Sociable",
+      "No": "Reserved"
+    }
+  },
+  {
+    "id": 4,
+    "question": "新しいアイデアを考えるのが好きですか？",
+    "characteristic": {
+      "Yes": "Creative",
+      "No": "Practical"
+    }
+  },
+  {
+    "id": 5,
+    "question": "スケジュールをきっちり立てて行動しますか？",
+    "characteristic": {
+      "Yes": "Organized",
+      "No": "Flexible"
+    }
+  },
+  {
+    "id": 6,
+    "question": "問題を解決する際、論理的に考えますか？",
+    "characteristic": {
+      "Yes": "Logical",
+      "No": "Emotional"
+    }
+  },
+  {
+    "id": 7,
+    "question": "勝負事では、必ず勝ちたいと思いますか？",
+    "characteristic": {
+      "Yes": "Competitive",
+      "No": "Cooperative"
+    }
+  },
+  {
+    "id": 8,
+    "question": "一人で作業する方が得意ですか？",
+    "characteristic": {
+      "Yes": "Independent",
+      "No": "Collaborative"
+    }
+  },
+  {
+    "id": 9,
+    "question": "将来の大きな目標を持っていますか？",
+    "characteristic": {
+      "Yes": "Ambitious",
+      "No": "ContentedRelaxed"
+    }
+  },
+  {
+    "id": 10,
+    "question": "細かい部分まで気を配りますか？",
+    "characteristic": {
+      "Yes": "DetailOriented",
+      "No": "BigPicture"
+    }
+  },
+  {
+    "id": 11,
+    "question": "自分の意見をはっきりと伝えますか？",
+    "characteristic": {
+      "Yes": "Assertive",
+      "No": "Diplomatic"
+    }
+  },
+  {
+    "id": 12,
+    "question": "リスクを取ってでも、新しいことに挑戦しますか？",
+    "characteristic": {
+      "Yes": "Brave",
+      "No": "Cautious"
+    }
+  },
+  {
+    "id": 13,
+    "question": "パーティーや集まりに参加するのが好きですか？",
+    "characteristic": {
+      "Yes": "Sociable",
+      "No": "Reserved"
+    }
+  },
+  {
+    "id": 14,
+    "question": "実用性よりも独創性を重視しますか？",
+    "characteristic": {
+      "Yes": "Creative",
+      "No": "Practical"
+    }
+  },
+  {
+    "id": 15,
+    "question": "計画を変更するのは苦手ですか？",
+    "characteristic": {
+      "Yes": "Organized",
+      "No": "Flexible"
+    }
+  },
+  {
+    "id": 16,
+    "question": "感情よりも事実を優先して判断しますか？",
+    "characteristic": {
+      "Yes": "Logical",
+      "No": "Emotional"
+    }
+  },
+  {
+    "id": 17,
+    "question": "チームで協力するよりも、個人で達成したいですか？",
+    "characteristic": {
+      "Yes": "Independent",
+      "No": "Collaborative"
+    }
+  },
+  {
+    "id": 18,
+    "question": "自分の利益よりも、周りの人を優先しますか？",
+    "characteristic": {
+      "Yes": "Generous",
+      "No": "Selfish"
+    }
+  },
+  {
+    "id": 19,
+    "question": "全体の流れよりも、細部の正確さが気になりますか？",
+    "characteristic": {
+      "Yes": "DetailOriented",
+      "No": "BigPicture"
+    }
+  },
+  {
+    "id": 20,
+    "question": "対立を避けて、穏やかに解決することを好みますか？",
+    "characteristic": {
+      "Yes": "Diplomatic",
+      "No": "Assertive"
+    }
+  }
+]
