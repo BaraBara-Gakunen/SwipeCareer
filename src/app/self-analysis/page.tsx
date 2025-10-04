@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
 import {
   CharacteristicQuestion,
   CharacteristicResult,
@@ -17,6 +18,7 @@ export default function SelfAnalysisPage() {
   const [dragOffset, setDragOffset] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
    useEffect(() => {
     setQuestions(charactaQuestions as CharacteristicQuestion[]); // JSON から直接読み込み
@@ -67,11 +69,11 @@ export default function SelfAnalysisPage() {
     else setDragOffset(0);
   };
 
-  if (currentIndex >= questions.length) {
-    // 全質問完了時はフェーズ2へ遷移
-    window.location.href = "/company-analysis";
-    return null;
-  }
+  useEffect(() => {
+    if (currentIndex >= questions.length && questions.length > 0) {
+      router.push("/company-analysis"); // 全質問完了時にフェーズ2へ遷移
+    }
+  }, [currentIndex, questions.length, router]);
 
   const rotation = dragOffset * 0.1;
   const opacity = Math.max(0, 1 - Math.abs(dragOffset) / 300);

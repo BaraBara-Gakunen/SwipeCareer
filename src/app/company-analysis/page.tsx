@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import { Company, CompanyResult, AnswerType } from "@/types/interface";
+import { useRouter } from "next/navigation";
 
 // バックエンド関数
 import { calcAndGetFilteredCompanies, storeCompanyResult } from "./backend";
@@ -11,6 +12,7 @@ export default function CompanyAnalysisPage() {
   const [dragOffset, setDragOffset] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   useEffect(() => {
     loadCompanies();
@@ -65,10 +67,11 @@ export default function CompanyAnalysisPage() {
     else setDragOffset(0);
   };
 
-  if (currentIndex >= companies.length) {
-    window.location.href = "/results"; // 全企業評価完了
-    return null;
-  }
+  useEffect(() => {
+    if (currentIndex >= companies.length && companies.length > 0) {
+      router.push("/results"); // 全企業評価完了時に結果ページへ遷移
+    }
+  }, [currentIndex, companies.length, router]);
 
   const rotation = dragOffset * 0.1;
   const opacity = Math.max(0, 1 - Math.abs(dragOffset) / 300);
