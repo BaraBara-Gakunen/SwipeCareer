@@ -116,7 +116,7 @@ export default function CompanyAnalysisPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative px-4">
+    <div className="min-h-screen flex flex-col items-center justify-between bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative px-4 py-20">
       {currentCompany && (
         <>
           {/* YES / NO ラベル */}
@@ -196,7 +196,7 @@ export default function CompanyAnalysisPage() {
       {/* 進捗ボタン - 常に表示 */}
       {currentCompany && (
         <motion.div
-          className="absolute bottom-6 sm:bottom-10"
+          className="w-full flex justify-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}

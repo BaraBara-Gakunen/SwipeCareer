@@ -83,7 +83,7 @@ export default function SelfAnalysisPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50 relative px-4">
+    <div className="min-h-screen flex flex-col items-center justify-between bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50 relative px-4 py-20">
       {currentQuestion && (
         <>
           {/* 左側の「NO」 */}
@@ -116,7 +116,7 @@ export default function SelfAnalysisPage() {
       {/* 進捗ボタン - 常に表示 */}
       {currentQuestion && (
         <motion.div
-          className="absolute bottom-6 sm:bottom-10"
+          className="w-full flex justify-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
