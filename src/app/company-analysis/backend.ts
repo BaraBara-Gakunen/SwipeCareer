@@ -62,27 +62,26 @@ const calculateAptitudeScore = (
 };
 
 export const calcAndGetFilteredCompanies = async (): Promise<Company[]> => {
-    // localStorageからselfAnalysisを取得
-    const selfAnalysis = getSelfAnalysis();
-        
-    // 各企業とselfAnalysisのマッチングスコアを計算（0~100スケール）
+    const selfAnalysis = getSelfAnalysis();        
     const companiesWithScore = companies.map((company) => {
         const matchScore = calculateAptitudeScore(
             company.wants as Characteristic[],
             selfAnalysis.characteristicsScore
         );
-
         return {
             company,
             matchScore,
         };
     });
+    const sortedCompanies = companiesWithScore.sort((a, b) => b.matchScore - a.matchScore);
+    const topCandidates = sortedCompanies.slice(0, Math.min(50, sortedCompanies.length));
+    // Fisher-Yates
+    const shuffled = [...topCandidates];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    const selectedCompanies = shuffled.slice(0, 30).map((item) => item.company);
 
-    // マッチスコアの高い順にソートして上位30社を取得
-    const topCompanies = companiesWithScore
-        .sort((a, b) => b.matchScore - a.matchScore)
-        .slice(0, 30)
-        .map((item) => item.company);
-
-    return topCompanies;
+    return selectedCompanies;
 }
