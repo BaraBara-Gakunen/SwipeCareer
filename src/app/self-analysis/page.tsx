@@ -7,7 +7,7 @@ import {
   CharacteristicResult,
   AnswerType,
 } from "@/types/types";
-import charactaQuestions from './characta.json';    
+import charactaQuestions from '@/data/characta.json';    
 import { storeCharacteristicResult } from "./characteristicStore";
 
 export default function SelfAnalysisPage() {
@@ -21,8 +21,22 @@ export default function SelfAnalysisPage() {
   const x = useMotionValue(0);
   const rotate = useTransform(x, [-200, 0, 200], [-15, 0, 15]);
 
-   useEffect(() => {
-    setQuestions(charactaQuestions as CharacteristicQuestion[]); // JSON から直接読み込み
+  useEffect(() => {
+    // Fisher-Yatesシャッフルアルゴリズム
+    const shuffleArray = <T,>(array: T[]): T[] => {
+      const shuffled = [...array];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      return shuffled;
+    };
+
+    // ランダムに30個選択
+    const allQuestions = charactaQuestions as CharacteristicQuestion[];
+    const shuffled = shuffleArray(allQuestions);
+    const selected = shuffled.slice(0, 30);
+    setQuestions(selected);
   }, []);
 
 
@@ -64,8 +78,12 @@ export default function SelfAnalysisPage() {
     }
   }, [currentIndex, questions.length, router]);
 
+  const handleSkip = () => {
+    router.push("/company-analysis");
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50 relative">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50 relative">
       {currentQuestion && (
         <>
           {/* 左側の「NO」 */}
@@ -93,6 +111,40 @@ export default function SelfAnalysisPage() {
             <h2 className="text-2xl font-bold">{currentQuestion.question}</h2>
           </motion.div>
         </>
+      )}
+
+      {/* 進捗ボタン - 常に表示 */}
+      {currentQuestion && (
+        <motion.div
+          className="absolute bottom-10"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <button
+            onClick={handleSkip}
+            disabled={currentIndex < 10}
+            className={`relative px-6 py-3 rounded-full font-semibold shadow-lg transition-all duration-300 overflow-hidden ${
+              currentIndex >= 10
+                ? 'bg-indigo-600 text-white hover:bg-indigo-700 hover:scale-105 cursor-pointer'
+                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+            }`}
+          >
+            {/* プログレスバーのゲージ */}
+            <motion.div
+              className="absolute inset-0 bg-indigo-600 origin-left"
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: Math.min(currentIndex / 10, 1) }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              style={{ transformOrigin: 'left' }}
+            />
+            
+            {/* テキスト */}
+            <span className="relative z-10">
+              {currentIndex >= 10 ? '次へ進む' : `あと${10 - currentIndex}問`} ({currentIndex}/{questions.length})
+            </span>
+          </button>
+        </motion.div>
       )}
     </div>
   );
