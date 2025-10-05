@@ -3,7 +3,7 @@ import { MatchedCompany } from "@/types/types";
 import { InstructionObject } from "./prompt";
 
 export const makeESDraft = async (content: MatchedCompany): Promise<string> => {
-  const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY, });
+  const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
   
   const messages: OpenAI.Chat.ChatCompletionMessageParam[] = [
     {
