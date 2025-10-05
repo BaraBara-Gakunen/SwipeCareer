@@ -1,6 +1,7 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { motion, useMotionValue, useTransform } from "framer-motion";
 import {
   CharacteristicQuestion,
   CharacteristicResult,
@@ -14,10 +15,11 @@ export default function SelfAnalysisPage() {
   const [fadeInLabels, setFadeInLabels] = useState(true); // ラベルのフェードイン制御
   const [questions, setQuestions] = useState<CharacteristicQuestion[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [dragOffset, setDragOffset] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
-  const cardRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
+
+  // framer-motion用のモーション値
+  const x = useMotionValue(0);
+  const rotate = useTransform(x, [-200, 0, 200], [-15, 0, 15]);
 
    useEffect(() => {
     setQuestions(charactaQuestions as CharacteristicQuestion[]); // JSON から直接読み込み
@@ -25,6 +27,8 @@ export default function SelfAnalysisPage() {
 
 
   const currentQuestion = questions[currentIndex];
+
+  const threshold = 120; // スワイプ判定の閾値
 
   const handleAnswer = (answer: AnswerType) => {
     if (!currentQuestion) return;
@@ -36,43 +40,22 @@ export default function SelfAnalysisPage() {
     // YESNOラベルを非表示にしてからカードをスワイプし、次の質問に移る
     setShowLabels(false);
     setTimeout(() => {
-    setCurrentIndex(currentIndex + 1);
-    setDragOffset(0);
-    setShowLabels(true);
-    setFadeInLabels(false);
-    setTimeout(() => setFadeInLabels(true), 300); // フェードイン終了後にフラグをリセット
-  }, 300);
+      setCurrentIndex(currentIndex + 1);
+      x.set(0);
+      setShowLabels(true);
+      setFadeInLabels(false);
+      setTimeout(() => setFadeInLabels(true), 300); // フェードイン終了後にフラグをリセット
+    }, 300);
   };
 
-  const handleMouseDown = () => setIsDragging(true);
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging) return;
-    const card = cardRef.current;
-    if (card) {
-      const rect = card.getBoundingClientRect();
-      setDragOffset(e.clientX - (rect.left + rect.width / 2));
+  const onDragEnd = (_event: unknown, info: { offset: { x: number } }) => {
+    if (info.offset.x > threshold) {
+      handleAnswer("Yes");
+    } else if (info.offset.x < -threshold) {
+      handleAnswer("No");
+    } else {
+      x.set(0);
     }
-  };
-  const handleMouseUp = () => {
-    setIsDragging(false);
-    if (Math.abs(dragOffset) > 100) handleAnswer(dragOffset > 0 ? "Yes" : "No");
-    else setDragOffset(0);
-  };
-
-  const handleTouchStart = () => setIsDragging(true);
-  const handleTouchMove = (e: React.TouchEvent) => {
-    if (!isDragging) return;
-    const touch = e.touches[0];
-    const card = cardRef.current;
-    if (card) {
-      const rect = card.getBoundingClientRect();
-      setDragOffset(touch.clientX - (rect.left + rect.width / 2));
-    }
-  };
-  const handleTouchEnd = () => {
-    setIsDragging(false);
-    if (Math.abs(dragOffset) > 100) handleAnswer(dragOffset > 0 ? "Yes" : "No");
-    else setDragOffset(0);
   };
 
   useEffect(() => {
@@ -80,9 +63,6 @@ export default function SelfAnalysisPage() {
       router.push("/company-analysis"); // 全質問完了時にフェーズ2へ遷移
     }
   }, [currentIndex, questions.length, router]);
-
-  const rotation = dragOffset * 0.1;
-  const opacity = Math.max(0, 1 - Math.abs(dragOffset) / 300);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50 relative">
@@ -102,24 +82,16 @@ export default function SelfAnalysisPage() {
             </div>
           )}
   
-          <div
-            ref={cardRef}
-            className="w-96 h-96 bg-white rounded-3xl shadow-2xl flex items-center justify-center text-center p-6 cursor-grab active:cursor-grabbing transition-all duration-300 hover:bg-pink-200"
-            style={{
-              transform: `translateX(${dragOffset}px) rotate(${rotation}deg)`,
-              opacity,
-              transition: isDragging ? "none" : "all 0.3s ease-out",
-            }}
-            onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove}
-            onMouseUp={handleMouseUp}
-            onMouseLeave={handleMouseUp}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
+          <motion.div
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            onDragEnd={onDragEnd}
+            style={{ x, rotate }}
+            className="w-96 h-96 bg-white rounded-3xl shadow-2xl flex items-center justify-center text-center p-6 cursor-grab active:cursor-grabbing hover:bg-pink-200"
           >
+
             <h2 className="text-2xl font-bold">{currentQuestion.question}</h2>
-          </div>
+          </motion.div>
         </>
       )}
     </div>
