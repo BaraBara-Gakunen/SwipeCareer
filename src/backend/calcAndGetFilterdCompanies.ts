@@ -1,5 +1,5 @@
 import { SelfAnalysis, Company } from "@/types/interface";
-import companyData from "@/DB/company.json";
+import companyData from "@/data/company.json";
 
 /**
  * Phase1 の自己分析結果を受け取り、

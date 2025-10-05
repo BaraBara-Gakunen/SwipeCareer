@@ -3,62 +3,25 @@ import {
   FavoriteCompaniesAnalysis,
   CompanyResult,
   MatchedCompany, 
-  Characteristic,
-  CompanyTag,
-  SelfAnalysis,
-  Company
-} from "@/types/interface";
+  Company,
+  SelfAnalysis
+} from "@/types/types";
 
-import companiesData from "@/app/database.json";
+import { Characteristic } from "@/types/characta";
+import { CompanyTag } from "@/types/companyTag";
+
+import companiesData from "@/data/company.json";
 
 const companies = companiesData as Company[];
 
+const companiesResults: CompanyResult[] = [];
 
-const selfAnalysis: SelfAnalysis = {
-  characteristicsScore: {
-    Cautious: 3,
-    Brave: 2,
-    Generous: 1,
-  },
-};
-
-const companiesResults: CompanyResult[] = [
-    {
-        name: "Company A",
-        description: "Description A",
-        id: 1,
-        photo: "url_to_photo_A",
-        url: "https://company-a.com",
-        wants: ["Generous", "Brave"],
-        tags: ["Finance", "Education"],
-        answer: "Yes",
-    },
-    {
-        name: "Company B",
-        description: "Description B",
-        tags: ["Finance", "Healthcare"],
-        answer: "No",
-        id: 2,
-        photo: "url_to_photo_B",
-        url: "https://company-b.com",
-        wants: ["Cautious", "Generous"],
-    },
-    {
-        name: "Company C",
-        description: "Description C",
-        tags: ["Education", "IT"],
-        answer: "Yes",
-        id: 3,
-        photo: "url_to_photo_C",
-        url: "https://company-c.com",
-        wants: ["Brave", "Cautious"],
-    },
-];
+    
 export const storeCompanyResult = async (result: CompanyResult): Promise<void> => {
   companiesResults.push(result);
 };
 
-export const calcAndGetRecomendationCompany = async (): Promise<RecommendationCompany[]> => {
+export const calcAndGetRecomendationCompany = async ( selfAnalysis: SelfAnalysis): Promise<RecommendationCompany[]> => {
   const buildFavoriteCompanyAnalysis = (): FavoriteCompaniesAnalysis => {
     const favoriteCompaniesAnalysis: FavoriteCompaniesAnalysis = {
       tagsScore: {},
