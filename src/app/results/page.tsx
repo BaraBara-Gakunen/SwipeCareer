@@ -107,7 +107,7 @@ const undo = () => {
 if (isLoading) {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
-      <p className="text-xl text-gray-600">Loading.....</p>
+      <p className="text-xl text-gray-600">ES作成中.....</p>
       <p className="text-2xl ml-4 animate-pulse">⏳</p>
     </div>
   );
