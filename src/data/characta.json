@@ -1,152 +1,232 @@
 [
-  {
-    "id": 1,
-    "question": "休日は、誰かと一緒に過ごすことが多い",
-    "characteristic": { "Yes": "Social", "No": "Introverted" }
-  },
-  {
-    "id": 2,
-    "question": "自分から、グループのリーダーに立候補することが多い",
-    "characteristic": { "Yes": "Leadership", "No": "Supporter" }
-  },
-  {
-    "id": 3,
-    "question": "チームで働くことが好きだ",
-    "characteristic": { "Yes": "Cooperative", "No": "Independent" }
-  },
-  {
-    "id": 4,
-    "question": "データや事実をもとに判断することが多い",
-    "characteristic": { "Yes": "Analytical", "No": "Creative" }
-  },
-  {
-    "id": 5,
-    "question": "新しいアイデアを考えるのが得意だ",
-    "characteristic": { "Yes": "Creative", "No": "Logical" }
-  },
-  {
-    "id": 6,
-    "question": "物事を論理的に整理して考えるのが好きだ",
-    "characteristic": { "Yes": "Logical", "No": "Creative" }
-  },
-  {
-    "id": 7,
-    "question": "慎重に考えてから行動することが多い",
-    "characteristic": { "Yes": "Cautious", "No": "Bold" }
-  },
-  {
-    "id": 8,
-    "question": "リスクを取ることを恐れない",
-    "characteristic": { "Yes": "Bold", "No": "Cautious" }
-  },
-  {
-    "id": 9,
-    "question": "状況に応じて柔軟に対応できる",
-    "characteristic": { "Yes": "Flexible", "No": "Sincere" }
-  },
-  {
-    "id": 10,
-    "question": "高い目標に向かって挑戦するのが好きだ",
-    "characteristic": { "Yes": "Ambitious", "No": "StabilityOriented" }
-  },
-  {
-    "id": 11,
-    "question": "新しいことを学ぶのが好きだ",
-    "characteristic": { "Yes": "Curious", "No": "Realistic" }
-  },
-  {
-    "id": 12,
-    "question": "長期的に粘り強く取り組むことができる",
-    "characteristic": { "Yes": "Patient", "No": "Bold" }
-  },
-  {
-    "id": 13,
-    "question": "他人の気持ちを理解することが得意だ",
-    "characteristic": { "Yes": "Empathetic", "No": "Analytical" }
-  },
-  {
-    "id": 14,
-    "question": "困難な状況でも冷静でいられる",
-    "characteristic": { "Yes": "Calm", "No": "Empathetic" }
-  },
-  {
-    "id": 15,
-    "question": "自分で考えて行動することが多い",
-    "characteristic": { "Yes": "Independent", "No": "Cooperative" }
-  },
-  {
-    "id": 16,
-    "question": "チームの一員として協力するのが得意だ",
-    "characteristic": { "Yes": "TeamPlayer", "No": "Independent" }
-  },
-  {
-    "id": 17,
-    "question": "人の話をじっくり聞くのが好きだ",
-    "characteristic": { "Yes": "GoodListener", "No": "Leadership" }
-  },
-  {
-    "id": 18,
-    "question": "周囲をサポートすることにやりがいを感じる",
-    "characteristic": { "Yes": "Supporter", "No": "Leadership" }
-  },
-  {
-    "id": 19,
-    "question": "従来のやり方を変えることに積極的だ",
-    "characteristic": { "Yes": "Innovative", "No": "Realistic" }
-  },
-  {
-    "id": 20,
-    "question": "実現可能性を重視して判断する",
-    "characteristic": { "Yes": "Realistic", "No": "Innovative" }
-  },
-  {
-    "id": 21,
-    "question": "細かいところまで丁寧に確認する",
-    "characteristic": { "Yes": "DetailOriented", "No": "BigPictureThinker" }
-  },
-  {
-    "id": 22,
-    "question": "全体像を把握することを優先する",
-    "characteristic": { "Yes": "BigPictureThinker", "No": "DetailOriented" }
-  },
-  {
-    "id": 23,
-    "question": "成果や結果を重視する",
-    "characteristic": { "Yes": "ResultOriented", "No": "ProcessOriented" }
-  },
-  {
-    "id": 24,
-    "question": "過程や手順を大切にする",
-    "characteristic": { "Yes": "ProcessOriented", "No": "ResultOriented" }
-  },
-  {
-    "id": 25,
-    "question": "挑戦的な課題に取り組むことが好きだ",
-    "characteristic": { "Yes": "ChallengeLover", "No": "StabilityOriented" }
-  },
-  {
-    "id": 26,
-    "question": "安定した環境を好む",
-    "characteristic": { "Yes": "StabilityOriented", "No": "ChallengeLover" }
-  },
-  {
-    "id": 27,
-    "question": "自ら率先して行動することが多い",
-    "characteristic": { "Yes": "Proactive", "No": "Patient" }
-  },
-  {
-    "id": 28,
-    "question": "約束や責任を重んじる",
-    "characteristic": { "Yes": "Sincere", "No": "Flexible" }
-  },
-  {
-    "id": 29,
-    "question": "プレッシャーがあっても平常心を保てる",
-    "characteristic": { "Yes": "StressResistant", "No": "Empathetic" }
-  },
-  {
-    "id": 30,
-    "question": "誰に対しても公平に接することを心がけている",
-    "characteristic": { "Yes": "Fair", "No": "Empathetic" }
-  }
+  { "id": 1, "question": "休日は、誰かと一緒に過ごすことが多い", "characteristic": { "Yes": "Social", "No": "Introverted" } },
+  { "id": 2, "question": "初対面の人と会話を楽しむことが多い", "characteristic": { "Yes": "Social", "No": "Introverted" } },
+  { "id": 3, "question": "イベントや飲み会に進んで参加する方だ", "characteristic": { "Yes": "Social", "No": "Introverted" } },
+  { "id": 4, "question": "新しい友人を作ることが苦にならない", "characteristic": { "Yes": "Social", "No": "Introverted" } },
+  { "id": 5, "question": "大人数の集まりで話すのが好きだ", "characteristic": { "Yes": "Social", "No": "Introverted" } },
+  { "id": 6, "question": "知らない人ともすぐ打ち解けられる", "characteristic": { "Yes": "Social", "No": "Introverted" } },
+  { "id": 7, "question": "友だちと過ごす時間を優先することが多い", "characteristic": { "Yes": "Social", "No": "Introverted" } },
+
+  { "id": 8, "question": "一人で過ごす時間を好む", "characteristic": { "Yes": "Introverted", "No": "Social" } },
+  { "id": 9, "question": "大勢の中より少人数で過ごす方が落ち着く", "characteristic": { "Yes": "Introverted", "No": "Social" } },
+  { "id": 10, "question": "静かな場所で読書や集中するのが好きだ", "characteristic": { "Yes": "Introverted", "No": "Social" } },
+  { "id": 11, "question": "社交の場より自分の時間を優先する", "characteristic": { "Yes": "Introverted", "No": "Social" } },
+  { "id": 12, "question": "初対面の人と話すと疲れやすい", "characteristic": { "Yes": "Introverted", "No": "Social" } },
+  { "id": 13, "question": "自分の内面を深く考えることが多い", "characteristic": { "Yes": "Introverted", "No": "Social" } },
+  { "id": 14, "question": "大きな集まりより家で過ごす方が安心する", "characteristic": { "Yes": "Introverted", "No": "Social" } },
+
+  { "id": 15, "question": "グループで率先して指示を出すことが多い", "characteristic": { "Yes": "Leadership", "No": "Supporter" } },
+  { "id": 16, "question": "プロジェクトで責任者になるのを好む", "characteristic": { "Yes": "Leadership", "No": "Supporter" } },
+  { "id": 17, "question": "チームの方向性を決める役割が自然にできる", "characteristic": { "Yes": "Leadership", "No": "Supporter" } },
+  { "id": 18, "question": "他人をまとめて目標に導くのが得意だ", "characteristic": { "Yes": "Leadership", "No": "Supporter" } },
+  { "id": 19, "question": "意思決定を任されると前向きに受ける", "characteristic": { "Yes": "Leadership", "No": "Supporter" } },
+  { "id": 20, "question": "困難な状況でリーダーシップを発揮する", "characteristic": { "Yes": "Leadership", "No": "Supporter" } },
+  { "id": 21, "question": "チームを鼓舞して動かすことにやりがいを感じる", "characteristic": { "Yes": "Leadership", "No": "Supporter" } },
+
+  { "id": 22, "question": "チームで協力して作業する方が成果が出ると思う", "characteristic": { "Yes": "Cooperative", "No": "Independent" } },
+  { "id": 23, "question": "意見が対立しても調整して合意を作るのが得意だ", "characteristic": { "Yes": "Cooperative", "No": "Independent" } },
+  { "id": 24, "question": "メンバーの意見を尊重して作業を進める", "characteristic": { "Yes": "Cooperative", "No": "Independent" } },
+  { "id": 25, "question": "独断より合議で決める方を好む", "characteristic": { "Yes": "Cooperative", "No": "Independent" } },
+  { "id": 26, "question": "チームの和を大切にする", "characteristic": { "Yes": "Cooperative", "No": "Independent" } },
+  { "id": 27, "question": "他人とペースを合わせて仕事を進められる", "characteristic": { "Yes": "Cooperative", "No": "Independent" } },
+  { "id": 28, "question": "共同作業で役割分担する方が集中できる", "characteristic": { "Yes": "Cooperative", "No": "Independent" } },
+
+  { "id": 29, "question": "物事を細かく分解して原因を探る方だ", "characteristic": { "Yes": "Analytical", "No": "Creative" } },
+  { "id": 30, "question": "決断するときはデータや根拠を重視する", "characteristic": { "Yes": "Analytical", "No": "Creative" } },
+  { "id": 31, "question": "問題を体系的に分析して解決策を考える", "characteristic": { "Yes": "Analytical", "No": "Creative" } },
+  { "id": 32, "question": "数字や事実に基づいて判断することが多い", "characteristic": { "Yes": "Analytical", "No": "Creative" } },
+  { "id": 33, "question": "複雑な情報を整理するのが得意だ", "characteristic": { "Yes": "Analytical", "No": "Creative" } },
+  { "id": 34, "question": "仮説を立てて検証するプロセスを好む", "characteristic": { "Yes": "Analytical", "No": "Creative" } },
+  { "id": 35, "question": "論理的な根拠を求めて考える", "characteristic": { "Yes": "Analytical", "No": "Creative" } },
+
+  { "id": 36, "question": "新しいアイデアを生み出すことが好きだ", "characteristic": { "Yes": "Creative", "No": "Analytical" } },
+  { "id": 37, "question": "型にはまらない方法で問題を解決するのを好む", "characteristic": { "Yes": "Creative", "No": "Analytical" } },
+  { "id": 38, "question": "表現やデザインに興味がある", "characteristic": { "Yes": "Creative", "No": "Analytical" } },
+  { "id": 39, "question": "既存のルールにとらわれず発想する", "characteristic": { "Yes": "Creative", "No": "Analytical" } },
+  { "id": 40, "question": "創造的なプロジェクトにワクワクする", "characteristic": { "Yes": "Creative", "No": "Analytical" } },
+  { "id": 41, "question": "常識に疑問を持ち新しい試みをする", "characteristic": { "Yes": "Creative", "No": "Analytical" } },
+  { "id": 42, "question": "柔軟な発想で代替案を提示する", "characteristic": { "Yes": "Creative", "No": "Analytical" } },
+
+  { "id": 43, "question": "結論に至る論理の筋道を重視する", "characteristic": { "Yes": "Logical", "No": "Empathetic" } },
+  { "id": 44, "question": "感情よりも理屈で説明することが自然だ", "characteristic": { "Yes": "Logical", "No": "Empathetic" } },
+  { "id": 45, "question": "手順や因果関係を重視して考える", "characteristic": { "Yes": "Logical", "No": "Empathetic" } },
+  { "id": 46, "question": "主張には論拠が必要だと考える", "characteristic": { "Yes": "Logical", "No": "Empathetic" } },
+  { "id": 47, "question": "体系立てて議論することが得意だ", "characteristic": { "Yes": "Logical", "No": "Empathetic" } },
+  { "id": 48, "question": "主観より客観的な整合性を優先する", "characteristic": { "Yes": "Logical", "No": "Empathetic" } },
+  { "id": 49, "question": "議論では根拠を示して説得する", "characteristic": { "Yes": "Logical", "No": "Empathetic" } },
+
+  { "id": 50, "question": "新しいことを始める前に慎重に検討する", "characteristic": { "Yes": "Cautious", "No": "Bold" } },
+  { "id": 51, "question": "リスクを避けるために準備を入念にする", "characteristic": { "Yes": "Cautious", "No": "Bold" } },
+  { "id": 52, "question": "安易な判断をせず確認を重ねる", "characteristic": { "Yes": "Cautious", "No": "Bold" } },
+  { "id": 53, "question": "失敗しないように計画を細かく立てる", "characteristic": { "Yes": "Cautious", "No": "Bold" } },
+  { "id": 54, "question": "決断には安全策を優先する", "characteristic": { "Yes": "Cautious", "No": "Bold" } },
+  { "id": 55, "question": "変化より安定を重視することが多い", "characteristic": { "Yes": "Cautious", "No": "Bold" } },
+  { "id": 56, "question": "提案する前に問題点を洗い出す", "characteristic": { "Yes": "Cautious", "No": "Bold" } },
+
+  { "id": 57, "question": "未知の領域でも積極的に挑戦する", "characteristic": { "Yes": "Bold", "No": "Cautious" } },
+  { "id": 58, "question": "リスクを取ってでも大きな結果を狙う", "characteristic": { "Yes": "Bold", "No": "Cautious" } },
+  { "id": 59, "question": "失敗を恐れず行動に移す方だ", "characteristic": { "Yes": "Bold", "No": "Cautious" } },
+  { "id": 60, "question": "大胆なアイデアを提案するのが苦にならない", "characteristic": { "Yes": "Bold", "No": "Cautious" } },
+  { "id": 61, "question": "変化を好み、新しい方法を試す", "characteristic": { "Yes": "Bold", "No": "Cautious" } },
+  { "id": 62, "question": "限定的な情報でも決断することが多い", "characteristic": { "Yes": "Bold", "No": "Cautious" } },
+  { "id": 63, "question": "周囲がためらう場面でも踏み出せる", "characteristic": { "Yes": "Bold", "No": "Cautious" } },
+
+  { "id": 64, "question": "状況に応じて計画を柔軟に変える", "characteristic": { "Yes": "Flexible", "No": "ProcessOriented" } },
+  { "id": 65, "question": "予期せぬ変更にも臨機応変に対応できる", "characteristic": { "Yes": "Flexible", "No": "ProcessOriented" } },
+  { "id": 66, "question": "固定のやり方にこだわらず方法を変える", "characteristic": { "Yes": "Flexible", "No": "ProcessOriented" } },
+  { "id": 67, "question": "複数の役割を兼務しても対応できる", "characteristic": { "Yes": "Flexible", "No": "ProcessOriented" } },
+  { "id": 68, "question": "優先順位を頻繁に見直すことがある", "characteristic": { "Yes": "Flexible", "No": "ProcessOriented" } },
+  { "id": 69, "question": "新しい情報に合わせて方針を修正する", "characteristic": { "Yes": "Flexible", "No": "ProcessOriented" } },
+  { "id": 70, "question": "ルールより効率を優先して調整する", "characteristic": { "Yes": "Flexible", "No": "ProcessOriented" } },
+
+  { "id": 71, "question": "キャリアで高い目標を達成したい", "characteristic": { "Yes": "Ambitious", "No": "StabilityOriented" } },
+  { "id": 72, "question": "昇進や成果で自分を評価してほしい", "characteristic": { "Yes": "Ambitious", "No": "StabilityOriented" } },
+  { "id": 73, "question": "現状維持より成長を優先する", "characteristic": { "Yes": "Ambitious", "No": "StabilityOriented" } },
+  { "id": 74, "question": "大きな挑戦に取り組むことを好む", "characteristic": { "Yes": "Ambitious", "No": "StabilityOriented" } },
+  { "id": 75, "question": "周囲よりも高い基準を自分に課す", "characteristic": { "Yes": "Ambitious", "No": "StabilityOriented" } },
+  { "id": 76, "question": "成功のために自分を厳しく律する", "characteristic": { "Yes": "Ambitious", "No": "StabilityOriented" } },
+  { "id": 77, "question": "長期的に大きな結果を狙って行動する", "characteristic": { "Yes": "Ambitious", "No": "StabilityOriented" } },
+
+  { "id": 78, "question": "知らないことを見つけると調べたくなる", "characteristic": { "Yes": "Curious", "No": "Realistic" } },
+  { "id": 79, "question": "疑問があると自分で試して確かめる", "characteristic": { "Yes": "Curious", "No": "Realistic" } },
+  { "id": 80, "question": "新しい分野に触れて知識を広げるのが好きだ", "characteristic": { "Yes": "Curious", "No": "Realistic" } },
+  { "id": 81, "question": "好奇心から多様な情報を集める", "characteristic": { "Yes": "Curious", "No": "Realistic" } },
+  { "id": 82, "question": "何かの背景や理由を深掘りすることがある", "characteristic": { "Yes": "Curious", "No": "Realistic" } },
+  { "id": 83, "question": "興味を持ったテーマは自分で学ぶ", "characteristic": { "Yes": "Curious", "No": "Realistic" } },
+  { "id": 84, "question": "好奇心が行動の原動力になる", "characteristic": { "Yes": "Curious", "No": "Realistic" } },
+
+  { "id": 85, "question": "結果が出るまで粘り強く取り組める", "characteristic": { "Yes": "Patient", "No": "Proactive" } },
+  { "id": 86, "question": "急がず着実に進める方だ", "characteristic": { "Yes": "Patient", "No": "Proactive" } },
+  { "id": 87, "question": "長期的な視点で物事に取り組む", "characteristic": { "Yes": "Patient", "No": "Proactive" } },
+  { "id": 88, "question": "段階を踏んで少しずつ改善するのを好む", "characteristic": { "Yes": "Patient", "No": "Proactive" } },
+  { "id": 89, "question": "困難に直面しても冷静に待つことができる", "characteristic": { "Yes": "Patient", "No": "Proactive" } },
+  { "id": 90, "question": "短期的な成果より継続を重視する", "characteristic": { "Yes": "Patient", "No": "Proactive" } },
+  { "id": 91, "question": "時間をかけて熟考してから行動する", "characteristic": { "Yes": "Patient", "No": "Proactive" } },
+
+  { "id": 92, "question": "相手の気持ちを考えて対応することが多い", "characteristic": { "Yes": "Empathetic", "No": "Logical" } },
+  { "id": 93, "question": "誰かが困っていると共感して助けたくなる", "characteristic": { "Yes": "Empathetic", "No": "Logical" } },
+  { "id": 94, "question": "感情の変化に気づきやすい", "characteristic": { "Yes": "Empathetic", "No": "Logical" } },
+  { "id": 95, "question": "相談にのるとき感情面を重視する", "characteristic": { "Yes": "Empathetic", "No": "Logical" } },
+  { "id": 96, "question": "人の立場に立って物事を判断する", "characteristic": { "Yes": "Empathetic", "No": "Logical" } },
+  { "id": 97, "question": "対話では相手の感情を尊重する", "characteristic": { "Yes": "Empathetic", "No": "Logical" } },
+  { "id": 98, "question": "チームの雰囲気を気にかける", "characteristic": { "Yes": "Empathetic", "No": "Logical" } },
+
+  { "id": 99, "question": "緊張する場面でも落ち着いて行動できる", "characteristic": { "Yes": "Calm", "No": "Bold" } },
+  { "id": 100, "question": "感情に流されず冷静に判断する", "characteristic": { "Yes": "Calm", "No": "Bold" } },
+  { "id": 101, "question": "慌てず順序立てて対応できる", "characteristic": { "Yes": "Calm", "No": "Bold" } },
+  { "id": 102, "question": "プレッシャー下でも平常心を保てる", "characteristic": { "Yes": "Calm", "No": "Bold" } },
+  { "id": 103, "question": "議論で感情的にならず論点に集中する", "characteristic": { "Yes": "Calm", "No": "Bold" } },
+  { "id": 104, "question": "冷静さを失わずに問題解決に当たる", "characteristic": { "Yes": "Calm", "No": "Bold" } },
+
+  { "id": 105, "question": "自分で決めて行動することが多い", "characteristic": { "Yes": "Independent", "No": "TeamPlayer" } },
+  { "id": 106, "question": "指示を待たず自分で進められる", "characteristic": { "Yes": "Independent", "No": "TeamPlayer" } },
+  { "id": 107, "question": "一人で課題を完遂するのが苦にならない", "characteristic": { "Yes": "Independent", "No": "TeamPlayer" } },
+  { "id": 108, "question": "自分でスケジュールを組んで行動する", "characteristic": { "Yes": "Independent", "No": "TeamPlayer" } },
+  { "id": 109, "question": "他人に頼らず自分で解決策を見つける", "characteristic": { "Yes": "Independent", "No": "TeamPlayer" } },
+  { "id": 110, "question": "単独で責任を持って仕事を進められる", "characteristic": { "Yes": "Independent", "No": "TeamPlayer" } },
+
+  { "id": 111, "question": "チームの成功を自分の役割として捉える", "characteristic": { "Yes": "TeamPlayer", "No": "Independent" } },
+  { "id": 112, "question": "メンバーと協力して目標を達成するのが好きだ", "characteristic": { "Yes": "TeamPlayer", "No": "Independent" } },
+  { "id": 113, "question": "他人の意見に耳を傾けて調整する", "characteristic": { "Yes": "TeamPlayer", "No": "Independent" } },
+  { "id": 114, "question": "チームワークが成果の鍵だと考える", "characteristic": { "Yes": "TeamPlayer", "No": "Independent" } },
+  { "id": 115, "question": "個人の成果よりチームの結果を重視する", "characteristic": { "Yes": "TeamPlayer", "No": "Independent" } },
+  { "id": 116, "question": "共同で作業することにやりがいを感じる", "characteristic": { "Yes": "TeamPlayer", "No": "Independent" } },
+
+  { "id": 117, "question": "相手の話を最後まで聞くことを心がける", "characteristic": { "Yes": "GoodListener", "No": "Leadership" } },
+  { "id": 118, "question": "相手の発言の裏にある意図を汲み取る", "characteristic": { "Yes": "GoodListener", "No": "Leadership" } },
+  { "id": 119, "question": "相手が話しやすい雰囲気を作る", "characteristic": { "Yes": "GoodListener", "No": "Leadership" } },
+  { "id": 120, "question": "相談を受けたらまず相手の話を聞く", "characteristic": { "Yes": "GoodListener", "No": "Leadership" } },
+  { "id": 121, "question": "聞いた内容を正確に繰り返して理解を確認する", "characteristic": { "Yes": "GoodListener", "No": "Leadership" } },
+  { "id": 122, "question": "会議で他者の意見を引き出す方だ", "characteristic": { "Yes": "GoodListener", "No": "Leadership" } },
+
+  { "id": 123, "question": "誰かのサポートをして役割を果たすことが好きだ", "characteristic": { "Yes": "Supporter", "No": "Leadership" } },
+  { "id": 124, "question": "他人を陰で支えるのにやりがいを感じる", "characteristic": { "Yes": "Supporter", "No": "Leadership" } },
+  { "id": 125, "question": "人の成功を自分のことのように喜べる", "characteristic": { "Yes": "Supporter", "No": "Leadership" } },
+  { "id": 126, "question": "裏方の仕事を厭わずこなす", "characteristic": { "Yes": "Supporter", "No": "Leadership" } },
+  { "id": 127, "question": "困っている人に手を差し伸べることが自然だ", "characteristic": { "Yes": "Supporter", "No": "Leadership" } },
+  { "id": 128, "question": "チームのために自分の役割を全うする", "characteristic": { "Yes": "Supporter", "No": "Leadership" } },
+
+  { "id": 129, "question": "既存の方法にとらわれない改善を試みる", "characteristic": { "Yes": "Innovative", "No": "Realistic" } },
+  { "id": 130, "question": "新しい技術や手法を積極的に導入する", "characteristic": { "Yes": "Innovative", "No": "Realistic" } },
+  { "id": 131, "question": "斬新なアイデアで問題を解決したい", "characteristic": { "Yes": "Innovative", "No": "Realistic" } },
+  { "id": 132, "question": "従来のやり方を見直して革新を起こす", "characteristic": { "Yes": "Innovative", "No": "Realistic" } },
+  { "id": 133, "question": "常により良い代替案を模索している", "characteristic": { "Yes": "Innovative", "No": "Realistic" } },
+  { "id": 134, "question": "現状に満足せず新機軸を探る", "characteristic": { "Yes": "Innovative", "No": "Realistic" } },
+
+  { "id": 135, "question": "実現可能性を重視して計画を立てる", "characteristic": { "Yes": "Realistic", "No": "Innovative" } },
+  { "id": 136, "question": "現実的な制約を踏まえて判断する", "characteristic": { "Yes": "Realistic", "No": "Innovative" } },
+  { "id": 137, "question": "期待値を現実に合わせて調整する", "characteristic": { "Yes": "Realistic", "No": "Innovative" } },
+  { "id": 138, "question": "理想より現実的な解決策を選ぶ", "characteristic": { "Yes": "Realistic", "No": "Innovative" } },
+  { "id": 139, "question": "リソースや時間に基づいて意思決定する", "characteristic": { "Yes": "Realistic", "No": "Innovative" } },
+  { "id": 140, "question": "可能な範囲で着実に進めることを好む", "characteristic": { "Yes": "Realistic", "No": "Innovative" } },
+
+  { "id": 141, "question": "細部まで注意を払って作業する", "characteristic": { "Yes": "DetailOriented", "No": "BigPictureThinker" } },
+  { "id": 142, "question": "小さな誤りも見落とさないよう注意する", "characteristic": { "Yes": "DetailOriented", "No": "BigPictureThinker" } },
+  { "id": 143, "question": "書類やデータの正確性を重視する", "characteristic": { "Yes": "DetailOriented", "No": "BigPictureThinker" } },
+  { "id": 144, "question": "チェックリストを作って確認する習慣がある", "characteristic": { "Yes": "DetailOriented", "No": "BigPictureThinker" } },
+  { "id": 145, "question": "段階的な作業の精度を高めることを好む", "characteristic": { "Yes": "DetailOriented", "No": "BigPictureThinker" } },
+  { "id": 146, "question": "完了前に細部を何度も確認する", "characteristic": { "Yes": "DetailOriented", "No": "BigPictureThinker" } },
+
+  { "id": 147, "question": "全体の方向性や戦略を考えるのが得意だ", "characteristic": { "Yes": "BigPictureThinker", "No": "DetailOriented" } },
+  { "id": 148, "question": "長期的な影響を考えて計画を立てる", "characteristic": { "Yes": "BigPictureThinker", "No": "DetailOriented" } },
+  { "id": 149, "question": "広い視点から複数の要素を統合する", "characteristic": { "Yes": "BigPictureThinker", "No": "DetailOriented" } },
+  { "id": 150, "question": "先を見越した戦略を描くことに長けている", "characteristic": { "Yes": "BigPictureThinker", "No": "DetailOriented" } },
+  { "id": 151, "question": "細部より大局を優先して判断する", "characteristic": { "Yes": "BigPictureThinker", "No": "DetailOriented" } },
+  { "id": 152, "question": "複数のプロジェクトを横断的に見るのが好きだ", "characteristic": { "Yes": "BigPictureThinker", "No": "DetailOriented" } },
+
+  { "id": 153, "question": "結果を出すことに重点を置いて行動する", "characteristic": { "Yes": "ResultOriented", "No": "ProcessOriented" } },
+  { "id": 154, "question": "目標達成のために効率的に動く方だ", "characteristic": { "Yes": "ResultOriented", "No": "ProcessOriented" } },
+  { "id": 155, "question": "期限を守り成果を出すことを重視する", "characteristic": { "Yes": "ResultOriented", "No": "ProcessOriented" } },
+  { "id": 156, "question": "数字で成果を評価されることにやりがいを感じる", "characteristic": { "Yes": "ResultOriented", "No": "ProcessOriented" } },
+  { "id": 157, "question": "達成基準を設定して結果にコミットする", "characteristic": { "Yes": "ResultOriented", "No": "ProcessOriented" } },
+  { "id": 158, "question": "効果が出るかどうかを最優先で判断する", "characteristic": { "Yes": "ResultOriented", "No": "ProcessOriented" } },
+
+  { "id": 159, "question": "手順や方法を整えることに注力する", "characteristic": { "Yes": "ProcessOriented", "No": "ResultOriented" } },
+  { "id": 160, "question": "品質を保つためのプロセスを重視する", "characteristic": { "Yes": "ProcessOriented", "No": "ResultOriented" } },
+  { "id": 161, "question": "ルールや手続きに従って確実に進める", "characteristic": { "Yes": "ProcessOriented", "No": "ResultOriented" } },
+  { "id": 162, "question": "効率よりも正確さを優先することがある", "characteristic": { "Yes": "ProcessOriented", "No": "ResultOriented" } },
+  { "id": 163, "question": "標準化されたフローを作るのが得意だ", "characteristic": { "Yes": "ProcessOriented", "No": "ResultOriented" } },
+  { "id": 164, "question": "工程の改善に取り組むことが好きだ", "characteristic": { "Yes": "ProcessOriented", "No": "ResultOriented" } },
+
+  { "id": 165, "question": "困難な課題に挑むことにやりがいを感じる", "characteristic": { "Yes": "ChallengeLover", "No": "StabilityOriented" } },
+  { "id": 166, "question": "難しい目標を設定してそれを克服するのが好きだ", "characteristic": { "Yes": "ChallengeLover", "No": "StabilityOriented" } },
+  { "id": 167, "question": "環境の変化や困難をチャンスと捉える", "characteristic": { "Yes": "ChallengeLover", "No": "StabilityOriented" } },
+  { "id": 168, "question": "普通よりも高い負荷の仕事を進んで受ける", "characteristic": { "Yes": "ChallengeLover", "No": "StabilityOriented" } },
+  { "id": 169, "question": "挑戦的な役割を自ら選ぶことがある", "characteristic": { "Yes": "ChallengeLover", "No": "StabilityOriented" } },
+  { "id": 170, "question": "現状を壊して新しい価値を作り出すことに興奮する", "characteristic": { "Yes": "ChallengeLover", "No": "StabilityOriented" } },
+
+  { "id": 171, "question": "安定した環境で着実に働くことを好む", "characteristic": { "Yes": "StabilityOriented", "No": "ChallengeLover" } },
+  { "id": 172, "question": "予測可能な業務で長期的に続けたい", "characteristic": { "Yes": "StabilityOriented", "No": "ChallengeLover" } },
+  { "id": 173, "question": "急激な変化よりも継続性を重視する", "characteristic": { "Yes": "StabilityOriented", "No": "ChallengeLover" } },
+  { "id": 174, "question": "リスクの少ない選択をする傾向がある", "characteristic": { "Yes": "StabilityOriented", "No": "ChallengeLover" } },
+  { "id": 175, "question": "長期契約や安定した収入を重視する", "characteristic": { "Yes": "StabilityOriented", "No": "ChallengeLover" } },
+  { "id": 176, "question": "計画どおりに物事が進むことを安心する", "characteristic": { "Yes": "StabilityOriented", "No": "ChallengeLover" } },
+
+  { "id": 177, "question": "問題が起きる前に手を打つ方だ", "characteristic": { "Yes": "Proactive", "No": "Patient" } },
+  { "id": 178, "question": "自ら率先して改善策を提案する", "characteristic": { "Yes": "Proactive", "No": "Patient" } },
+  { "id": 179, "question": "待たずに行動して物事を前に進める", "characteristic": { "Yes": "Proactive", "No": "Patient" } },
+  { "id": 180, "question": "先回りして準備を整える習慣がある", "characteristic": { "Yes": "Proactive", "No": "Patient" } },
+  { "id": 181, "question": "機会があれば自発的に動き出す", "characteristic": { "Yes": "Proactive", "No": "Patient" } },
+  { "id": 182, "question": "受け身より自発的な取り組みを好む", "characteristic": { "Yes": "Proactive", "No": "Patient" } },
+
+  { "id": 183, "question": "言動に誠実さを重んじる", "characteristic": { "Yes": "Sincere", "No": "Ambitious" } },
+  { "id": 184, "question": "約束したことは守る方だ", "characteristic": { "Yes": "Sincere", "No": "Ambitious" } },
+  { "id": 185, "question": "表裏のない対応を心がける", "characteristic": { "Yes": "Sincere", "No": "Ambitious" } },
+  { "id": 186, "question": "率直に意見を伝えることを大切にする", "characteristic": { "Yes": "Sincere", "No": "Ambitious" } },
+  { "id": 187, "question": "信頼を築くために正直である", "characteristic": { "Yes": "Sincere", "No": "Ambitious" } },
+  { "id": 188, "question": "嘘やごまかしを嫌う", "characteristic": { "Yes": "Sincere", "No": "Ambitious" } },
+
+  { "id": 189, "question": "忙しい状況でもパフォーマンスを維持できる", "characteristic": { "Yes": "StressResistant", "No": "Calm" } },
+  { "id": 190, "question": "締め切り直前でも冷静に処理できる", "characteristic": { "Yes": "StressResistant", "No": "Calm" } },
+  { "id": 191, "question": "ストレスがかかる仕事でも適応できる", "characteristic": { "Yes": "StressResistant", "No": "Calm" } },
+  { "id": 192, "question": "プレッシャーの下で落ち着いて対応できる", "characteristic": { "Yes": "StressResistant", "No": "Calm" } },
+  { "id": 193, "question": "短期間に高い成果を出すことができる", "characteristic": { "Yes": "StressResistant", "No": "Calm" } },
+  { "id": 194, "question": "緊急事態でも冷静に優先順位をつけられる", "characteristic": { "Yes": "StressResistant", "No": "Calm" } },
+
+  { "id": 195, "question": "公平さを重視して判断する", "characteristic": { "Yes": "Fair", "No": "Ambitious" } },
+  { "id": 196, "question": "利害より原則に基づいて決めることが多い", "characteristic": { "Yes": "Fair", "No": "Ambitious" } },
+  { "id": 197, "question": "全員に平等な機会を与えることを心がける", "characteristic": { "Yes": "Fair", "No": "Ambitious" } },
+  { "id": 198, "question": "自分の有利より公平性を優先する", "characteristic": { "Yes": "Fair", "No": "Ambitious" } },
+  { "id": 199, "question": "評価は事実に基づいて公正に行う", "characteristic": { "Yes": "Fair", "No": "Ambitious" } },
+  { "id": 200, "question": "ルールを守り公正さを保つことを重要視する", "characteristic": { "Yes": "Fair", "No": "Ambitious" } }
 ]
