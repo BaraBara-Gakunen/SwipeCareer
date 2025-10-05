@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Company, CompanyResult, AnswerType } from "@/types/types";
 import { useRouter } from "next/navigation";
 import { motion, useMotionValue, useTransform } from "framer-motion";
-
+import Image from "next/image";
 // モック画像（public/mock-images/ に配置）
 const mockImages = [
   "/mock-images/1.png",
@@ -33,6 +33,9 @@ export default function CompanyAnalysisPage() {
   const [mockImage, setMockImage] = useState<string>(
     mockImages[Math.floor(Math.random() * mockImages.length)]
   );
+  
+  // 直近2回の画像履歴を管理
+  const [imageHistory, setImageHistory] = useState<string[]>([mockImages[Math.floor(Math.random() * mockImages.length)]]);
 
   const router = useRouter();
   const x = useMotionValue(0);
@@ -53,20 +56,37 @@ export default function CompanyAnalysisPage() {
 
   const handleAnswer = (answer: AnswerType) => {
     if (!currentCompany) return;
-
+    
     const result: CompanyResult = { ...currentCompany, answer };
     storeCompanyResult(result);
-
+    
+    // YESNOラベルを非表示にしてからカードをスワイプし、次の質問に移る
     setShowLabels(false);
     setTimeout(() => {
-      setCurrentIndex((prev) => prev + 1);
+      setCurrentIndex(currentIndex + 1);
       x.set(0);
       setShowLabels(true);
       setFadeInLabels(false);
-      setTimeout(() => setFadeInLabels(true), 300);
+      setTimeout(() => setFadeInLabels(true), 300); // フェードイン終了後にフラグをリセット
 
-      // 次のカードのモック画像をランダムにセット
-      setMockImage(mockImages[Math.floor(Math.random() * mockImages.length)]);
+      // 直近2回と異なる画像を選択
+      let newImage: string;
+      const availableImages = mockImages.filter(img => !imageHistory.includes(img));
+      
+      if (availableImages.length > 0) {
+        // 利用可能な画像からランダムに選択
+        newImage = availableImages[Math.floor(Math.random() * availableImages.length)];
+      } else {
+        // すべて使用済みの場合はリセット（直近1つだけ避ける）
+        const lastImage = imageHistory[imageHistory.length - 1];
+        const resetImages = mockImages.filter(img => img !== lastImage);
+        newImage = resetImages[Math.floor(Math.random() * resetImages.length)];
+      }
+      
+      setMockImage(newImage);
+      
+      // 履歴を更新（最新2つのみ保持）
+      setImageHistory(prev => [...prev, newImage].slice(-2));
     }, 300);
   };
 
@@ -121,12 +141,14 @@ export default function CompanyAnalysisPage() {
             dragConstraints={{ left: 0, right: 0 }}
             onDragEnd={onDragEnd}
             style={{ x, rotate }}
-            className="w-96 bg-white rounded-3xl shadow-2xl flex flex-col items-center text-center p-6 cursor-grab active:cursor-grabbing hover:bg-pink-100 transition-all"
+            className="w-96 bg-white rounded-3xl shadow-2xl flex flex-col items-center text-center p-6 cursor-grab active:cursor-grabbing hover:bg-pink-200"
           >
             {/* モック画像 */}
-            <img
+            <Image
               src={mockImage}
               alt="Company mock"
+              width={384}
+              height={224}
               className="w-full h-56 object-cover rounded-2xl mb-4 shadow-md"
             />
 
