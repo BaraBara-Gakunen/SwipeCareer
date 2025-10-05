@@ -27,18 +27,27 @@ export default function ResultPage() {
   const [liked, setLiked] = useState<MatchedCompanyWithDraft[]>([]);
   const [passed, setPassed] = useState<MatchedCompanyWithDraft[]>([]);
   const [initialLength, setInitialLength] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
 
   // Promiseの中身を取り出して初期データを設定
   useEffect(() => {
-    calcAndGetRecommendationCompany().then((recommendations) => {
-      // RecommendationCompany[]からMatchedCompanyWithDraft[]に変換
-      const companiesWithDraft: MatchedCompanyWithDraft[] = recommendations.map(rec => ({
-        ...rec.matchedCompany,
-        esDraft: rec.esDraft
-      }));
-      setStack(companiesWithDraft);
-      setInitialLength(companiesWithDraft.length);
-    });
+    setIsLoading(true); // 👈 ここでtrueにセット（フェッチ開始）
+  
+    calcAndGetRecommendationCompany()
+      .then((recommendations) => {
+        const companiesWithDraft: MatchedCompanyWithDraft[] = recommendations.map(rec => ({
+          ...rec.matchedCompany,
+          esDraft: rec.esDraft
+        }));
+        setStack(companiesWithDraft);
+        setInitialLength(companiesWithDraft.length);
+      })
+      .catch((err) => {
+        console.error("企業データ取得エラー:", err);
+      })
+      .finally(() => {
+        setIsLoading(false); // 👈 Promise完了後にfalseへ（ローディング終了）
+      });
   }, []);
 
   const current = stack[0];
@@ -95,6 +104,14 @@ const undo = () => {
     setStack((prev) => [last!, ...prev]);
   }
 };
+if (isLoading) {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+      <p className="text-xl text-gray-600">Loading.....</p>
+      <p className="text-2xl ml-4 animate-pulse">⏳</p>
+    </div>
+  );
+}
 
   return (
     <div className="min-h-screen w-full max-w-5xl mx-auto p-4 sm:p-6 space-y-4">
