@@ -114,15 +114,15 @@ if (isLoading) {
 }
 
   return (
-    <div className="min-h-screen w-full max-w-5xl mx-auto p-4 sm:p-6 space-y-4">
-      <header className="flex items-center justify-between">
-        <h1 className="text-xl sm:text-2xl font-bold">マッチ結果</h1>
-        <div className="flex items-center gap-4">
-          <div className="text-sm text-gray-500">
+    <div className="min-h-screen w-full max-w-5xl mx-auto p-3 sm:p-6 space-y-3 sm:space-y-4">
+      <header className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0">
+        <h1 className="text-lg sm:text-2xl font-bold">マッチ結果</h1>
+        <div className="flex items-center gap-2 sm:gap-4 w-full sm:w-auto justify-between sm:justify-end">
+          <div className="text-xs sm:text-sm text-gray-500">
             {liked.length} saved / {passed.length} skipped
           </div>
           {/* ホームボタン */}
-          <Link href="/" className="px-3 py-1.5 rounded-md bg-pink-500 text-white text-sm font-medium shadow hover:bg-pink-600 transition">
+          <Link href="/" className="px-3 py-1.5 rounded-md bg-pink-500 text-white text-xs sm:text-sm font-medium shadow hover:bg-pink-600 transition whitespace-nowrap">
             ホームに戻る
           </Link>
         </div>
@@ -130,7 +130,7 @@ if (isLoading) {
 
       {/* Top: Swipe area */}
       <div className="grid grid-rows-[1fr_auto] gap-3 sm:gap-4 hover:cursor-grab active:cursor-grabbing">
-        <div className="relative h-[52vh] sm:h-[56vh]">
+        <div className="relative h-[50vh] sm:h-[56vh]">
           <AnimatePresence>
             {stack.slice(0, 3).map((c, i) => (
               <motion.div
@@ -147,27 +147,27 @@ if (isLoading) {
                     style={{ x, rotate }}
                     dragConstraints={{ left: 0, right: 0 }}
                     onDragEnd={onDragEnd}
-                    className="h-full w-full bg-white rounded-2xl shadow-xl border overflow-hidden flex"
+                    className="h-full w-full bg-white rounded-2xl shadow-xl border overflow-hidden flex flex-col sm:flex-row"
                   >
                     {/* photo */}
-                    <div className="sm:block w-1/3 bg-gray-50 flex items-center justify-center">
+                    <div className="w-full sm:w-1/3 h-32 sm:h-auto bg-gray-50 flex items-center justify-center">
                       {/* In real app use Image component */}
-                      <div className="w-28 h-28 bg-gray-200 rounded-xl" />
+                      <div className="w-20 h-20 sm:w-28 sm:h-28 bg-gray-200 rounded-xl" />
                     </div>
                     {/* content */}
-                    <div className="flex-1 p-4 sm:p-6 space-y-3">
-                      <div className="flex items-center gap-3">
-                        <h2 className="text-lg sm:text-xl font-semibold">{c.name}</h2>
-                        <a href={c.url} target="_blank" className="text-xs text-blue-600 underline">サイト</a>
+                    <div className="flex-1 p-3 sm:p-6 space-y-2 sm:space-y-3">
+                      <div className="flex items-center gap-2 sm:gap-3">
+                        <h2 className="text-base sm:text-xl font-semibold">{c.name}</h2>
+                        <a href={c.url} target="_blank" className="text-[10px] sm:text-xs text-blue-600 underline whitespace-nowrap">サイト</a>
                       </div>
-                      <p className="text-sm text-gray-600 line-clamp-3">{c.description}</p>
-                      <div className="flex flex-wrap gap-2">
+                      <p className="text-xs sm:text-sm text-gray-600 line-clamp-2 sm:line-clamp-3">{c.description}</p>
+                      <div className="flex flex-wrap gap-1 sm:gap-2">
                         {c.tags.map((t) => (
                           <Tag key={t}>{t}</Tag>
                         ))}
                       </div>
                       {c.matchedCharacteristics && c.matchedCharacteristics.length > 0 && (
-                        <div className="flex flex-wrap gap-2 pt-1">
+                        <div className="flex flex-wrap gap-1 sm:gap-2 pt-1">
                           {c.matchedCharacteristics.map((m, idx) => (
                             <Tag key={idx}>{m.characteristic}</Tag>
                           ))}
@@ -175,13 +175,13 @@ if (isLoading) {
                       )}
 
                       {/* like/nope hints */}
-                      <div className="absolute top-4 left-4">
-                        <motion.div style={{ opacity: opacityNope }} className="px-3 py-1 rounded-md border text-sm text-rose-600 border-rose-300 bg-rose-50">
+                      <div className="absolute top-2 sm:top-4 left-2 sm:left-4">
+                        <motion.div style={{ opacity: opacityNope }} className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-md border text-xs sm:text-sm text-rose-600 border-rose-300 bg-rose-50">
                           NOPE
                         </motion.div>
                       </div>
-                      <div className="absolute top-4 right-4">
-                        <motion.div style={{ opacity: opacityLike }} className="px-3 py-1 rounded-md border text-sm text-emerald-600 border-emerald-300 bg-emerald-50">
+                      <div className="absolute top-2 sm:top-4 right-2 sm:right-4">
+                        <motion.div style={{ opacity: opacityLike }} className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-md border text-xs sm:text-sm text-emerald-600 border-emerald-300 bg-emerald-50">
                           LIKE
                         </motion.div>
                       </div>
@@ -203,24 +203,24 @@ if (isLoading) {
         </div>
 
         {/* Action buttons */}
-        <div className="flex items-center justify-center gap-4">
+        <div className="flex items-center justify-center gap-2 sm:gap-4">
           <button
             onClick={() => swipe("left")}
-            className="px-4 py-2 rounded-full border bg-white shadow active:scale-95"
+            className="px-3 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base rounded-full border bg-white shadow active:scale-95"
             disabled={!current}
           >
             スキップ
           </button>
           <button
             onClick={undo}
-            className="px-4 py-2 rounded-full border bg-white shadow active:scale-95"
+            className="px-3 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base rounded-full border bg-white shadow active:scale-95"
             disabled={stack.length === initialLength} // 最初の状態なら戻れない
           >
             戻る
           </button>
           <button
             onClick={() => swipe("right")}
-            className="px-4 py-2 rounded-full bg-black text-white shadow active:scale-95"
+            className="px-3 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base rounded-full bg-black text-white shadow active:scale-95"
             disabled={!current}
           >
             保存
@@ -229,22 +229,22 @@ if (isLoading) {
       </div>
 
       {/* Bottom: ES editor */}
-      <section className="grid gap-3 sm:gap-4">
-        <h3 className="text-base sm:text-lg font-semibold">ES ドラフト</h3>
-        <div className="bg-white rounded-2xl border shadow p-4 sm:p-5">
+      <section className="grid gap-2 sm:gap-4">
+        <h3 className="text-sm sm:text-lg font-semibold">ES ドラフト</h3>
+        <div className="bg-white rounded-2xl border shadow p-3 sm:p-5">
           {current ? (
             <>
-              <div className="mb-2 text-sm text-gray-500">{current.name} 向け</div>
+              <div className="mb-2 text-xs sm:text-sm text-gray-500">{current.name} 向け</div>
               <textarea
                 value={current.esDraft ?? ""}
                 onChange={(e) => updateDraft(e.target.value)}
-                className="w-full min-h-[160px] sm:min-h-[200px] outline-none resize-vertical"
+                className="w-full min-h-[120px] sm:min-h-[200px] text-sm sm:text-base outline-none resize-vertical"
                 placeholder="ここに志望動機の下書きを書いてください…"
               />
               <div className="flex items-center justify-end gap-2 pt-2">
                 <button
                   onClick={() => navigator.clipboard.writeText(current.esDraft ?? "")}
-                  className="px-3 py-1.5 rounded-md border bg-white text-sm"
+                  className="px-3 py-1.5 rounded-md border bg-white text-xs sm:text-sm"
                 >
                   コピー
                 </button>
@@ -259,13 +259,13 @@ if (isLoading) {
       {/* Liked list (optional quick view) */}
       {liked.length > 0 && (
         <section className="space-y-2">
-          <h3 className="text-base sm:text-lg font-semibold">保存した企業</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+          <h3 className="text-sm sm:text-lg font-semibold">保存した企業</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-3">
             {liked.map((c) => (
-              <div key={c.id} className="border rounded-xl p-3 bg-white">
-                <div className="font-medium">{c.name}</div>
-                <div className="text-xs text-gray-500 line-clamp-2">{c.description}</div>
-                <div className="flex flex-wrap gap-1.5 pt-1">
+              <div key={c.id} className="border rounded-xl p-2 sm:p-3 bg-white">
+                <div className="text-sm sm:text-base font-medium">{c.name}</div>
+                <div className="text-[10px] sm:text-xs text-gray-500 line-clamp-2">{c.description}</div>
+                <div className="flex flex-wrap gap-1 sm:gap-1.5 pt-1">
                   {c.tags.map((t) => (
                     <Tag key={t}>{t}</Tag>
                   ))}
