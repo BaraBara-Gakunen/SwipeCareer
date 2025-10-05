@@ -4,7 +4,7 @@ import { Company, CompanyResult, AnswerType } from "@/types/types";
 import { useRouter } from "next/navigation";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 
-//  モック画像（public/mock-images/ に配置）
+// モック画像（public/mock-images/ に配置）
 const mockImages = [
   "/mock-images/1.png",
   "/mock-images/2.png",
@@ -18,29 +18,27 @@ const mockImages = [
   "/mock-images/10.png",
 ];
 
-//  企業データの取得
+// バックエンド関数
 import { calcAndGetFilteredCompanies } from "./backend";
 import { storeCompanyResult } from "./companyResultStore";
 
 export default function CompanyAnalysisPage() {
-  // 状態管理
+  const [showLabels, setShowLabels] = useState(true);
+  const [fadeInLabels, setFadeInLabels] = useState(true);
   const [companies, setCompanies] = useState<Company[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
-  const [mockImage, setMockImage] = useState<string>(() => {
-    //  初期描画前にランダムな画像を設定（最初のカードが空にならない）
-    return mockImages[Math.floor(Math.random() * mockImages.length)];
-  });
-  const [showLabels, setShowLabels] = useState(true);
-  const [fadeInLabels, setFadeInLabels] = useState(true);
+
+  // 初期ランダムモック画像をセット
+  const [mockImage, setMockImage] = useState<string>(
+    mockImages[Math.floor(Math.random() * mockImages.length)]
+  );
 
   const router = useRouter();
-
-  // アニメーション関連
   const x = useMotionValue(0);
   const rotate = useTransform(x, [-200, 0, 200], [-15, 0, 15]);
+  const threshold = 120; // スワイプ判定
 
-  // 企業データをロード
   useEffect(() => {
     const loadCompanies = async () => {
       setIsLoading(true);
@@ -52,16 +50,13 @@ export default function CompanyAnalysisPage() {
   }, []);
 
   const currentCompany = companies[currentIndex];
-  const threshold = 120; // スワイプ判定の閾値
 
-  // スワイプ後の処理
   const handleAnswer = (answer: AnswerType) => {
     if (!currentCompany) return;
 
     const result: CompanyResult = { ...currentCompany, answer };
-    storeCompanyResult(result); // 結果を保存
+    storeCompanyResult(result);
 
-    // ラベル非表示 → 次カードへ遷移 → 新しいモック画像を設定
     setShowLabels(false);
     setTimeout(() => {
       setCurrentIndex((prev) => prev + 1);
@@ -70,27 +65,23 @@ export default function CompanyAnalysisPage() {
       setFadeInLabels(false);
       setTimeout(() => setFadeInLabels(true), 300);
 
-      //  新しいカードにランダム画像を設定
-      const randomMock = mockImages[Math.floor(Math.random() * mockImages.length)];
-      setMockImage(randomMock);
+      // 次のカードのモック画像をランダムにセット
+      setMockImage(mockImages[Math.floor(Math.random() * mockImages.length)]);
     }, 300);
   };
 
-  // スワイプ判定
   const onDragEnd = (_event: unknown, info: { offset: { x: number } }) => {
     if (info.offset.x > threshold) handleAnswer("Yes");
     else if (info.offset.x < -threshold) handleAnswer("No");
     else x.set(0);
   };
 
-  // 全企業終了時に結果ページへ
   useEffect(() => {
     if (currentIndex >= companies.length && companies.length > 0) {
       router.push("/results");
     }
   }, [currentIndex, companies.length, router]);
 
-  // ローディング画面
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
@@ -100,12 +91,11 @@ export default function CompanyAnalysisPage() {
     );
   }
 
-  // メイン表示
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative">
       {currentCompany && (
         <>
-          {/*  YES / NO ラベル */}
+          {/* YES / NO ラベル */}
           {showLabels && (
             <>
               <div
@@ -125,7 +115,7 @@ export default function CompanyAnalysisPage() {
             </>
           )}
 
-          {/*  カード本体 */}
+          {/* カード本体 */}
           <motion.div
             drag="x"
             dragConstraints={{ left: 0, right: 0 }}
@@ -133,14 +123,14 @@ export default function CompanyAnalysisPage() {
             style={{ x, rotate }}
             className="w-96 bg-white rounded-3xl shadow-2xl flex flex-col items-center text-center p-6 cursor-grab active:cursor-grabbing hover:bg-pink-100 transition-all"
           >
-            {/*  ランダムモック画像（object-coverで整形） */}
+            {/* モック画像 */}
             <img
               src={mockImage}
               alt="Company mock"
               className="w-full h-56 object-cover rounded-2xl mb-4 shadow-md"
             />
 
-            {/*  会社名と説明 */}
+            {/* 会社名と説明 */}
             <h2 className="text-2xl font-bold mb-2 text-gray-800">
               {currentCompany.name}
             </h2>
@@ -148,12 +138,12 @@ export default function CompanyAnalysisPage() {
               {currentCompany.description || "この企業の説明は現在準備中です。"}
             </p>
 
-             {/* タグ情報 */}
+            {/* タグ */}
             {currentCompany.tags && (
               <div className="mt-4 flex flex-wrap justify-center gap-2">
-                {currentCompany.tags.map((tag: string, index: number) => (
+                {currentCompany.tags.map((tag, idx) => (
                   <span
-                    key={index}
+                    key={idx}
                     className="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs font-medium"
                   >
                     {tag}
@@ -162,7 +152,7 @@ export default function CompanyAnalysisPage() {
               </div>
             )}
 
-            {/* URL表示 */}
+            {/* URL */}
             {currentCompany.url && (
               <a
                 href={currentCompany.url}
