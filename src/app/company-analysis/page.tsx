@@ -148,7 +148,31 @@ export default function CompanyAnalysisPage() {
               {currentCompany.description || "この企業の説明は現在準備中です。"}
             </p>
 
-            
+             {/* タグ情報 */}
+            {currentCompany.tags && (
+              <div className="mt-4 flex flex-wrap justify-center gap-2">
+                {currentCompany.tags.map((tag: string, index: number) => (
+                  <span
+                    key={index}
+                    className="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs font-medium"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
+
+            {/* URL表示 */}
+            {currentCompany.url && (
+              <a
+                href={currentCompany.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 inline-block text-indigo-600 font-semibold hover:underline"
+              >
+                公式サイトを見る →
+              </a>
+            )}
           </motion.div>
         </>
       )}
