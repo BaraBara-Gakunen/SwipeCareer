@@ -6,10 +6,7 @@ export const makeESDraft = async (content: MatchedCompany): Promise<string> => {
   const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
   
   const messages: OpenAI.Chat.ChatCompletionMessageParam[] = [
-    {
-      role: "system",
-      content: InstructionObject.content
-    },
+    InstructionObject,
     {
       role: "user",
       content: InstructionObject.makePrompt(content).content
