@@ -9,12 +9,8 @@ export default function MainPage() {
 
   const slides = [
     { image: "/image3.png" },
-    {
-      image:
-        "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1600&h=900&fit=crop",
-      title: "スワイプで簡単自己分析",
-    },
-    {
+    { image: "/image4.png"},
+     {
       image:
         "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1600&h=900&fit=crop",
       title: "あなたの未来がここから始まる",
@@ -136,6 +132,28 @@ export default function MainPage() {
             >
               マッチングを開始する
             </button>
+          </div>
+        </div>
+
+        {/* カード */}
+        <div className="grid md:grid-cols-3 gap-8">
+          <div className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+            <h4 className="font-bold text-xl mb-2">自己分析</h4>
+            <p className="text-gray-600">
+              自分の性格や興味を簡単な質問で分析して理解します。
+            </p>
+          </div>
+          <div className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+            <h4 className="font-bold text-xl mb-2">企業分析</h4>
+            <p className="text-gray-600">
+              興味のある企業の特徴を把握し、自分に合った企業を見つけます。
+            </p>
+          </div>
+          <div className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+            <h4 className="font-bold text-xl mb-2">マッチング</h4>
+            <p className="text-gray-600">
+              自己分析と企業分析をもとに、最適な企業とマッチングします。
+            </p>
           </div>
         </div>
       </main>
