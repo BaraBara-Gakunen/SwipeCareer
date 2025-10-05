@@ -1,16 +1,11 @@
-// if you want to test with mock data, 
-// uncomment the import below and the relevant line in the POST function
-
 import { NextRequest, NextResponse } from "next/server";
-import { makeESDraft } from "./gemini";
-// import { mockMatchedCompany } from "./mockObject";
+import { makeESDraft } from "./openAI";
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
     const body = await req.json();
     const inputData = body.company || body.content;
-    // const inputData = mockMatchedCompany;
-
+    
     if (!inputData) {
       return NextResponse.json(
         { success: false, error: "No company data provided" },

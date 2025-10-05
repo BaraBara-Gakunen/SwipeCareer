@@ -1,18 +1,18 @@
 import { MatchedCompany } from "@/types/types";
 
+export const InstructionObject = {
+  role: "system",
+  content: "あなたは就職活動用のES（エントリーシート）作成のプロAIです。",
+  
+  makePrompt: (matchedCompany: MatchedCompany) => {
+    const characteristicsStr = matchedCompany.matchedCharacteristics
+      .map(mc => `  - ${mc.characteristic}: ${mc.score}点`)
+      .join("\n");
 
-export const Instruction: string = `
-あなたは就職活動用のES（エントリーシート）作成のプロAIです。
-`;
-
-export const makePrompt = (matchedCompany: MatchedCompany) => {
-  const characteristicsStr = matchedCompany.matchedCharacteristics
-    .map(mc => `  - ${mc.characteristic}: ${mc.score}点`)
-    .join("\n");
-
-  return `
-以下の情報をもとに、400字程度で、自己PRと志望動機を自然につなげた文章を作成してください。
-
+    return {
+      role: "user",
+      content: `
+400字程度で、自己PRと志望動機を自然につなげた文章を作成してください。
 
 【入力情報】
 - 企業名: ${matchedCompany.name}
@@ -29,6 +29,8 @@ ${characteristicsStr}
 5. 文章は320字以上400字以内にまとめる。
 6. 口語ではなく、丁寧で前向きな文章にする。
 7. 会社名は「貴社」と表現する。
-8. 自身の特徴は英語ではなく日本語で表現する。
-`.trim();
+8. 自身の特徴や会社の特徴を英語ではなく日本語で表現する。
+      `.trim(),
+    };
+  },
 };
