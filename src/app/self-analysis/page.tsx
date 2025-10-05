@@ -83,19 +83,19 @@ export default function SelfAnalysisPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50 relative">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50 relative px-4">
       {currentQuestion && (
         <>
           {/* 左側の「NO」 */}
           {showLabels && (
-            <div className={`absolute left-10 text-red-500 text-4xl font-bold pointer-events-none sm:top-20 top-10 transition-opacity duration-500 ${fadeInLabels ? 'opacity-100' : 'opacity-0'}`}>
+            <div className={`absolute left-4 sm:left-10 text-red-500 text-2xl sm:text-4xl font-bold pointer-events-none top-10 sm:top-20 transition-opacity duration-500 ${fadeInLabels ? 'opacity-100' : 'opacity-0'}`}>
               NO
             </div>
           )}
 
           {/* 右側の「YES」 */}
           {showLabels && (
-            <div className={`absolute right-10 text-green-500 text-4xl font-bold pointer-events-none sm:top-20 top-10 transition-opacity duration-500 ${fadeInLabels ? 'opacity-100' : 'opacity-0'}`}>
+            <div className={`absolute right-4 sm:right-10 text-green-500 text-2xl sm:text-4xl font-bold pointer-events-none top-10 sm:top-20 transition-opacity duration-500 ${fadeInLabels ? 'opacity-100' : 'opacity-0'}`}>
               YES
             </div>
           )}
@@ -105,10 +105,10 @@ export default function SelfAnalysisPage() {
             dragConstraints={{ left: 0, right: 0 }}
             onDragEnd={onDragEnd}
             style={{ x, rotate }}
-            className="w-96 h-96 bg-white rounded-3xl shadow-2xl flex items-center justify-center text-center p-6 cursor-grab active:cursor-grabbing hover:bg-pink-200"
+            className="w-[85vw] max-w-sm h-[85vw] max-h-sm sm:w-96 sm:h-96 bg-white rounded-3xl shadow-2xl flex items-center justify-center text-center p-4 sm:p-6 cursor-grab active:cursor-grabbing hover:bg-pink-200"
           >
 
-            <h2 className="text-2xl font-bold">{currentQuestion.question}</h2>
+            <h2 className="text-xl sm:text-2xl font-bold px-2">{currentQuestion.question}</h2>
           </motion.div>
         </>
       )}
@@ -116,7 +116,7 @@ export default function SelfAnalysisPage() {
       {/* 進捗ボタン - 常に表示 */}
       {currentQuestion && (
         <motion.div
-          className="absolute bottom-10"
+          className="absolute bottom-6 sm:bottom-10"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
@@ -124,7 +124,7 @@ export default function SelfAnalysisPage() {
           <button
             onClick={handleSkip}
             disabled={currentIndex < 10}
-            className={`relative px-6 py-3 rounded-full font-semibold shadow-lg transition-all duration-300 overflow-hidden ${
+            className={`relative px-4 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-semibold shadow-lg transition-all duration-300 overflow-hidden ${
               currentIndex >= 10
                 ? 'bg-indigo-600 text-white hover:bg-indigo-700 hover:scale-105 cursor-pointer'
                 : 'bg-gray-300 text-gray-500 cursor-not-allowed'

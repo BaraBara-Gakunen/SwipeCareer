@@ -96,6 +96,10 @@ export default function CompanyAnalysisPage() {
     else x.set(0);
   };
 
+  const handleSkip = () => {
+    router.push("/results");
+  };
+
   useEffect(() => {
     if (currentIndex >= companies.length && companies.length > 0) {
       router.push("/results");
@@ -112,21 +116,21 @@ export default function CompanyAnalysisPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative px-4">
       {currentCompany && (
         <>
           {/* YES / NO ラベル */}
           {showLabels && (
             <>
               <div
-                className={`absolute left-10 text-red-500 text-4xl font-bold pointer-events-none sm:top-20 top-10 transition-opacity duration-500 ${
+                className={`absolute left-4 sm:left-10 text-red-500 text-2xl sm:text-4xl font-bold pointer-events-none top-10 sm:top-20 transition-opacity duration-500 ${
                   fadeInLabels ? "opacity-100" : "opacity-0"
                 }`}
               >
                 NO
               </div>
               <div
-                className={`absolute right-10 text-green-500 text-4xl font-bold pointer-events-none sm:top-20 top-10 transition-opacity duration-500 ${
+                className={`absolute right-4 sm:right-10 text-green-500 text-2xl sm:text-4xl font-bold pointer-events-none top-10 sm:top-20 transition-opacity duration-500 ${
                   fadeInLabels ? "opacity-100" : "opacity-0"
                 }`}
               >
@@ -141,7 +145,7 @@ export default function CompanyAnalysisPage() {
             dragConstraints={{ left: 0, right: 0 }}
             onDragEnd={onDragEnd}
             style={{ x, rotate }}
-            className="w-96 bg-white rounded-3xl shadow-2xl flex flex-col items-center text-center p-6 cursor-grab active:cursor-grabbing hover:bg-pink-200"
+            className="w-[90vw] max-w-sm sm:w-96 bg-white rounded-3xl shadow-2xl flex flex-col items-center text-center p-4 sm:p-6 cursor-grab active:cursor-grabbing hover:bg-pink-200"
           >
             {/* モック画像 */}
             <Image
@@ -149,24 +153,24 @@ export default function CompanyAnalysisPage() {
               alt="Company mock"
               width={384}
               height={224}
-              className="w-full h-56 object-cover rounded-2xl mb-4 shadow-md"
+              className="w-full h-40 sm:h-56 object-cover rounded-2xl mb-3 sm:mb-4 shadow-md"
             />
 
             {/* 会社名と説明 */}
-            <h2 className="text-2xl font-bold mb-2 text-gray-800">
+            <h2 className="text-lg sm:text-2xl font-bold mb-2 text-gray-800">
               {currentCompany.name}
             </h2>
-            <p className="text-sm text-gray-600 mb-3">
+            <p className="text-xs sm:text-sm text-gray-600 mb-2 sm:mb-3 line-clamp-3">
               {currentCompany.description || "この企業の説明は現在準備中です。"}
             </p>
 
             {/* タグ */}
             {currentCompany.tags && (
-              <div className="mt-4 flex flex-wrap justify-center gap-2">
+              <div className="mt-2 sm:mt-4 flex flex-wrap justify-center gap-1.5 sm:gap-2">
                 {currentCompany.tags.map((tag, idx) => (
                   <span
                     key={idx}
-                    className="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs font-medium"
+                    className="bg-indigo-100 text-indigo-800 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-medium"
                   >
                     {tag}
                   </span>
@@ -180,13 +184,47 @@ export default function CompanyAnalysisPage() {
                 href={currentCompany.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-5 inline-block text-indigo-600 font-semibold hover:underline"
+                className="mt-3 sm:mt-5 inline-block text-indigo-600 text-sm sm:text-base font-semibold hover:underline"
               >
                 公式サイトを見る →
               </a>
             )}
           </motion.div>
         </>
+      )}
+
+      {/* 進捗ボタン - 常に表示 */}
+      {currentCompany && (
+        <motion.div
+          className="absolute bottom-6 sm:bottom-10"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <button
+            onClick={handleSkip}
+            disabled={currentIndex < 10}
+            className={`relative px-4 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-semibold shadow-lg transition-all duration-300 overflow-hidden ${
+              currentIndex >= 10
+                ? 'bg-indigo-600 text-white hover:bg-indigo-700 hover:scale-105 cursor-pointer'
+                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+            }`}
+          >
+            {/* プログレスバーのゲージ */}
+            <motion.div
+              className="absolute inset-0 bg-indigo-600 origin-left"
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: Math.min(currentIndex / 10, 1) }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              style={{ transformOrigin: 'left' }}
+            />
+            
+            {/* テキスト */}
+            <span className="relative z-10">
+              {currentIndex >= 10 ? '次へ進む' : `あと${10 - currentIndex}問`} ({currentIndex}/{companies.length})
+            </span>
+          </button>
+        </motion.div>
       )}
     </div>
   );
